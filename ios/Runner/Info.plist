@@ -49,5 +49,8 @@
       <string>App需要您的同意,才能访问相册</string>
     <key>NSCameraUsageDescription</key>
       <string>App需要您的同意,才能访问相机</string>
+	<key>CADisableMinimumFrameDurationOnPhone</key>
+	<true/>
+  
 </dict>
 </plist>

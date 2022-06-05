@@ -1,11 +1,12 @@
+// ignore_for_file: file_names, library_private_types_in_public_api, no_leading_underscores_for_local_identifiers,unnecessary_null_comparison, non_constant_identifier_names, unused_import, prefer_const_constructors
 import 'dart:convert';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:max_box/router/router_utils.dart';
+import 'package:max_box/common/AppToBar.dart';
 import 'package:max_box/utils/adApt.dart';
-import 'package:max_box/views/login.dart';
+import 'package:max_box/views/loginCode.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
@@ -45,8 +46,6 @@ class _WebViewPage extends State<WebViewPage> {
   _openGallery() async {
     XFile? _image =
         await _picker.pickImage(source: ImageSource.gallery, imageQuality: 90);
-    print(_image);
-    // ignore: unnecessary_null_comparison
     if (_image != null) {
       String script =
           "window._Vue._store.dispatch('setImgPath', '${_image.path}')";
@@ -55,26 +54,23 @@ class _WebViewPage extends State<WebViewPage> {
   }
 
   // 打开相机
-  // ignore: non_constant_identifier_names
   JavascriptChannel JsOpenCamera(BuildContext context) => JavascriptChannel(
       name: 'JsOpenCamera',
       onMessageReceived: (JavascriptMessage message) async {
         _takePhoto();
       });
   // 打开相册
-  // ignore: non_constant_identifier_names
   JavascriptChannel JsOpenGallery(BuildContext context) => JavascriptChannel(
       name: 'JsOpenGallery',
       onMessageReceived: (JavascriptMessage message) async {
         _openGallery();
       });
   // 退出登录
-  // ignore: non_constant_identifier_names
   JavascriptChannel JsExitLogin(BuildContext context) => JavascriptChannel(
       name: 'JsExitLogin',
       onMessageReceived: (JavascriptMessage message) async {
         // 退出登录暂时这样写
-        Navigator.push(context, Bottom2TopRouter(child: Login()));
+        // Navigator.push(context, Bottom2TopRouter(child: const Login()));
       });
   @override
   void initState() {
@@ -85,34 +81,13 @@ class _WebViewPage extends State<WebViewPage> {
 
   @override
   Widget build(BuildContext context) {
-    return widget.isAppBar
-        ? Scaffold(appBar: _buildAppbar(), body: _buildBody())
-        : Scaffold(body: _buildBody());
-  }
-
-  _buildAppbar() {
-    return AppBar(
-        elevation: 0,
-        backgroundColor: Color(0xccd0d7),
-        title: Text(
-          widget.title,
-          style: TextStyle(fontSize: Adapt.px(36), color: Colors.black),
-        ),
-        centerTitle: true,
-        leading: IconButton(
-            icon: Icon(
-              Icons.arrow_back_ios,
-              size: Adapt.px(40),
-              color: Color.fromARGB(255, 56, 56, 56),
-            ),
-            onPressed: () {
-              Navigator.of(context)..pop();
-            }));
+    return Scaffold(body: _buildBody());
   }
 
   _buildBody() {
     return Column(
       children: <Widget>[
+        AppToBar(title: widget.title, child: Text('')),
         SizedBox(
           height: widget.isAppBar ? 1 : 0,
           width: double.infinity,
@@ -129,11 +104,11 @@ class _WebViewPage extends State<WebViewPage> {
                     .toString()
                 : widget.url,
             javascriptMode: JavascriptMode.unrestricted,
-            javascriptChannels: <JavascriptChannel>[
+            javascriptChannels: <JavascriptChannel>{
               JsOpenCamera(context),
               JsOpenGallery(context),
               JsExitLogin(context)
-            ].toSet(),
+            },
             onWebViewCreated: (WebViewController controller) {
               widget._webViewController = controller;
               if (widget.isLocalUrl) {

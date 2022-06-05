@@ -1,3 +1,5 @@
+// ignore_for_file: camel_case_types
+
 part of 'user_bloc.dart';
 
 abstract class UserEvent extends Equatable {

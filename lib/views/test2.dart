@@ -1,3 +1,5 @@
+// ignore_for_file: use_key_in_widget_constructors, unnecessary_new, camel_case_types, prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:max_box/common/AppToBar.dart';
 
@@ -13,7 +15,10 @@ class testHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        AppToBar(title: '测试路由2'),
+        AppToBar(
+          title: '二级测试路由',
+          child: Text(''),
+        ),
         Expanded(
             child: Center(
                 child: TextButton(
@@ -22,7 +27,7 @@ class testHome extends StatelessWidget {
                           BorderSide(color: Colors.grey, width: 1)),
                     ),
                     onPressed: () => {Navigator.of(context)..pop()},
-                    child: Text('返回'))))
+                    child: Text('返回上一级'))))
       ],
     );
   }

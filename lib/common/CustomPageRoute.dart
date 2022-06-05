@@ -1,3 +1,5 @@
+// ignore_for_file: file_names, unnecessary_new
+
 import 'package:flutter/material.dart';
 
 class CustomPageRoute extends PageRouteBuilder {
@@ -30,7 +32,7 @@ class CustomPageRoute extends PageRouteBuilder {
               SlideTransition(
                 position: new Tween<Offset>(
                   begin: const Offset(0, 1),
-                  end: Offset(0, 0),
+                  end: const Offset(0, 0),
                 ).animate(animation),
                 child: newPage,
               )

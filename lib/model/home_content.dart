@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:equatable/equatable.dart';
 
 class HomeContentViewModel extends Equatable {
@@ -5,11 +7,11 @@ class HomeContentViewModel extends Equatable {
       {required this.id,
       required this.title,
       required this.content,
-      required this.create_time});
+      required this.createAt});
   final String id;
   final String title;
   final String content;
-  final String create_time;
+  final String createAt;
   @override
-  List<Object> get props => [id, title, content, create_time];
+  List<Object> get props => [id, title, content, createAt];
 }

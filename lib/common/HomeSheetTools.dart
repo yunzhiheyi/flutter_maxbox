@@ -1,8 +1,11 @@
+// ignore_for_file: file_names, library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:max_box/router/Routes.dart';
 import 'package:max_box/utils/adApt.dart';
 
 class HomeSheetTools extends StatefulWidget {
+  const HomeSheetTools({Key? key}) : super(key: key);
   @override
   _HomeSheetTools createState() => _HomeSheetTools();
 }
@@ -42,7 +45,7 @@ class _HomeSheetTools extends State<HomeSheetTools> {
                     Text(
                       '新建文件夹',
                       style: TextStyle(
-                        color: Color.fromARGB(255, 126, 126, 126),
+                        color: const Color.fromARGB(255, 126, 126, 126),
                         fontSize: Adapt.px(26),
                       ),
                     )
@@ -61,7 +64,7 @@ class _HomeSheetTools extends State<HomeSheetTools> {
                     Text(
                       '新建文本',
                       style: TextStyle(
-                        color: Color.fromARGB(255, 126, 126, 126),
+                        color: const Color.fromARGB(255, 126, 126, 126),
                         fontSize: Adapt.px(26),
                       ),
                     )
@@ -80,9 +83,9 @@ class _HomeSheetTools extends State<HomeSheetTools> {
                               height: Adapt.px(120),
                             ),
                             Text(
-                              '导入台词',
+                              '测试路由',
                               style: TextStyle(
-                                color: Color.fromARGB(255, 126, 126, 126),
+                                color: const Color.fromARGB(255, 126, 126, 126),
                                 fontSize: Adapt.px(26),
                               ),
                             )

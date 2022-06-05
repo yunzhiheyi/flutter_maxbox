@@ -1,43 +1,44 @@
+// ignore_for_file: file_names, unnecessary_new
+
 import 'package:flutter/material.dart';
-import 'package:flutter_swiper_tv/flutter_swiper.dart';
+import 'package:flutter_swiper_view/flutter_swiper_view.dart';
 import 'package:max_box/utils/adApt.dart';
-// ignore: import_of_legacy_library_into_null_safe
 
 class HomeSwiper extends StatelessWidget {
+  const HomeSwiper({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
-        width: Adapt.px(680),
-        height: Adapt.px(255),
+        width: Adapt.px(674),
+        height: Adapt.px(160),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(8),
           color: Colors.grey.withAlpha(68),
         ),
         margin:
-            EdgeInsets.fromLTRB(Adapt.px(30), Adapt.px(20), Adapt.px(30), 0),
+            EdgeInsets.fromLTRB(Adapt.px(20), Adapt.px(20), Adapt.px(20), 0),
         child: ClipRRect(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(8),
           child: Swiper(
             scrollDirection: Axis.horizontal, // 横向
-            itemCount: 2, // 数量
-            autoplay: true, // 自动翻页
+            itemCount: 1, // 数量
+            loop: false,
+            autoplay: false, // 自动翻页
             itemBuilder: (BuildContext context, int index) {
               return new Image.network(
-                  index == 0
-                      ? "https://oss.taicibao.com/junr/test/b_3.jpeg"
-                      : 'https://oss.taicibao.com/junr/test/b_4.jpeg',
+                  "https://cdn.maxbox.com.cn/image/icon-ad-1.png",
                   fit: BoxFit.cover,
                   loadingBuilder: (context, child, loadingProgress) {
                 if (loadingProgress == null) return child;
                 // int _loadingProgress = loadingProgress.cumulativeBytesLoaded / loadingProgress.expectedTotalBytes
                 return Container(
-                  width: Adapt.px(40),
-                  height: Adapt.px(40),
+                  width: Adapt.px(30),
+                  height: Adapt.px(30),
                   alignment: Alignment.center,
                   child: CircularProgressIndicator(
                     backgroundColor: Colors.grey.withAlpha(66),
                     strokeWidth: Adapt.px(8),
-                    valueColor: AlwaysStoppedAnimation(Colors.orange),
+                    valueColor: const AlwaysStoppedAnimation(Color(0xFF2C6FF6)),
                     value: null,
                   ),
                 );

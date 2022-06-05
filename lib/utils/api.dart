@@ -4,15 +4,15 @@ class Api {
   ///登录
   static login(Map<String, dynamic> data) {
     return Request.post(
-      "/api/v1/app/login",
+      "/api/app/user/loginCode",
       params: data,
     );
   }
 
-  ///发送验证码
+  //发送验证码
   static getCode(Map<String, dynamic> data) {
     return Request.post(
-      "/api/v1/app/generic/sendsms",
+      "/api/app/generic/sendsms",
       params: data,
     );
   }
@@ -20,7 +20,7 @@ class Api {
   ///获取内容
   static getContent(Map<String, dynamic> data) {
     return Request.get(
-      "/api/v1/app/generic/getContent",
+      "/api/app/user/teleprompter/list",
       params: data,
     );
   }

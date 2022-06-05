@@ -1,6 +1,9 @@
+// ignore_for_file: non_constant_identifier_names, prefer_interpolation_to_compose_strings, unnecessary_brace_in_string_interps,missing_return, avoid_print
+
 import 'dart:convert';
 // import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:max_box/utils/LocalStorage.dart';
 import 'package:max_box/utils/tools.dart';
 // import 'package:flutter/cupertino.dart';
@@ -10,9 +13,9 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 class Request {
   // 配置 Dio 实例
-  static BaseOptions _options = BaseOptions(
+  static final BaseOptions _options = BaseOptions(
     ///Api地址
-    baseUrl: 'http://192.168.1.16:3000',
+    baseUrl: 'http://192.168.101.3:3001',
 
     ///打开超时时间
     connectTimeout: 50000,
@@ -21,10 +24,9 @@ class Request {
     receiveTimeout: 30000,
   );
   // 创建 Dio 实例
-  static Dio _dio = Dio(_options);
+  static final Dio _dio = Dio(_options);
 
   // _request 是核心函数，所有的请求都会走这里
-  // ignore: missing_return
   static Future _request<T>(String path,
       {method, Map<String, dynamic>? params}) async {
     // String _params;
@@ -69,8 +71,8 @@ class Request {
         // var data = response.data;
         try {
           // 如果状态吗不等于0，说明错误，则进行提示
-          print('code');
-          print(data['code']);
+          debugPrint('code');
+          print(data);
           if (data['code'] > 200 && data['code'] != 201) {
             EasyLoading.showToast("${data['message']}");
             return data;
@@ -86,7 +88,7 @@ class Request {
           }
         } catch (e) {
           // LogUtil.v(e, tag: '解析响应数据异常');
-          print('catch${e}');
+          debugPrint('catch${e}');
           return Future.error('解析响应数据异常');
         }
       } else {

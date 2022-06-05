@@ -1,6 +1,8 @@
+// ignore_for_file:  unused_import, depend_on_referenced_packages
 import 'package:bloc/bloc.dart';
 import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:equatable/equatable.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:max_box/model/models.dart';
 import 'package:max_box/utils/LocalStorage.dart';
@@ -58,7 +60,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       }
       await _fetchGetCode(event.mobile);
     } catch (_) {
-      print('ERROR');
+      debugPrint('ERROR');
     }
   }
 
@@ -91,7 +93,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
             refresh_token: resData['data']['refresh_token']));
       }
     } catch (_) {
-      print('LoginStatus ERROR----$_');
+      debugPrint('LoginStatus ERROR----$_');
       emit(state.copyWith(status: LoginStatus.failure));
     }
   }

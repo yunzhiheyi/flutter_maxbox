@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 
 class LeftToRightPageRoute extends PageRouteBuilder {
@@ -18,7 +20,7 @@ class LeftToRightPageRoute extends PageRouteBuilder {
             Widget child,
           ) =>
               SlideTransition(
-            position: Tween(begin: Offset(-1, 0), end: Offset(0, 0))
+            position: Tween(begin: const Offset(-1, 0), end: const Offset(0, 0))
                 .animate(animation),
             child: child,
           ),
