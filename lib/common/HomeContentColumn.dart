@@ -31,7 +31,7 @@ class HomeContentColumnState extends State<HomeContentColumn>
           GestureDetector(
               onTap: () => {
                     Routes.navigateTo(
-                        context, '/teleprompter', {}, TransitionType.cupertino)
+                        context, '/videotext', {}, TransitionType.cupertino)
                   },
               child: Container(
                   height: Adapt.px(160),
@@ -83,7 +83,7 @@ class HomeContentColumnState extends State<HomeContentColumn>
           GestureDetector(
               onTap: () => {
                     Routes.navigateTo(
-                        context, '/teleprompter', {}, TransitionType.cupertino)
+                        context, '/login', {}, TransitionType.inFromBottom)
                   },
               child: Container(
                   height: Adapt.px(160),

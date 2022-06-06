@@ -2,12 +2,16 @@
 
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import 'package:max_box/views/textToVoice.dart';
 import 'package:max_box/views/teleprompter.dart';
 import 'package:max_box/views/teleprompterText.dart';
 import 'package:max_box/views/test.dart';
+import 'package:max_box/views/videoTotext.dart';
 import '../views/login.dart';
 import '../views/splash.dart';
 import '../views/watermark.dart';
+import '../views/textToVoice.dart';
+import '../views/videoTotext.dart';
 import '../views/webview.dart';
 import '../views/test.dart';
 import '../views/test2.dart';
@@ -63,6 +67,17 @@ class Routes {
     router.define('/watermark', handler: Handler(
         handlerFunc: (BuildContext? context, Map<String, dynamic> params) {
       return WatermarkIndex(params: paramsData(params));
+    }));
+
+    //文字转语音
+    router.define('/textvoice', handler: Handler(
+        handlerFunc: (BuildContext? context, Map<String, dynamic> params) {
+      return TextToVoice(params: paramsData(params));
+    }));
+    //视频转文字
+    router.define('/videotext', handler: Handler(
+        handlerFunc: (BuildContext? context, Map<String, dynamic> params) {
+      return VideoTotext(params: paramsData(params));
     }));
     //配置webview
     router.define('/test', handler: Handler(

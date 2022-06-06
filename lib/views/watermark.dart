@@ -210,16 +210,13 @@ class WatermarkIndexState extends State<WatermarkIndex>
                 print('立即解析');
               },
             ),
-            Column(children: <Widget>[
-              Container(
-                margin:
-                    EdgeInsets.only(left: Adapt.px(30), right: Adapt.px(30)),
-                child: Text('本功能仅供学习研究使用，视频内容版权归原作者所有，请勿违法违规使用。',
-                    style: TextStyle(
-                        fontSize: Adapt.px(24),
-                        color: Color.fromARGB(255, 170, 170, 170))),
-              ),
-            ])
+            Container(
+              margin: EdgeInsets.only(left: Adapt.px(30), right: Adapt.px(30)),
+              child: Text('本功能仅供学习研究使用，视频内容版权归原作者所有，请勿违法违规使用。',
+                  style: TextStyle(
+                      fontSize: Adapt.px(24),
+                      color: Color.fromARGB(255, 170, 170, 170))),
+            ),
           ]),
         ));
     // //右下角图标按钮onPressed中需要调用setState方法，用于刷新界面

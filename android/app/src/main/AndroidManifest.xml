@@ -9,6 +9,7 @@
    <application
         android:label="蜜蜂转码"
         android:name=".MainApplication"
+        android:usesCleartextTraffic="true"
         android:networkSecurityConfig="@xml/network_security_config"
         android:icon="@mipmap/ic_launcher">
         <activity

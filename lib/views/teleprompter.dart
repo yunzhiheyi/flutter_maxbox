@@ -100,7 +100,7 @@ class TeleprompterList extends StatelessWidget {
             child: Stack(children: [
           Container(
               margin:
-                  EdgeInsets.only(top: Adapt.px(Platform.isAndroid ? 30 : 15)),
+                  EdgeInsets.only(top: Adapt.px(Platform.isAndroid ? 45 : 15)),
               child: PullDownRefreshList()),
           Positioned(
             top: 0,

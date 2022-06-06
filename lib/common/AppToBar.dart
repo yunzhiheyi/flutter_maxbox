@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:max_box/utils/adApt.dart';
 
-class AppToBar extends StatefulWidget {
+class AppToBar extends StatefulWidget implements PreferredSizeWidget {
   final String title;
   final Widget child;
   const AppToBar({
@@ -15,6 +15,9 @@ class AppToBar extends StatefulWidget {
 
   @override
   _AppToBar createState() => _AppToBar();
+
+  @override
+  Size get preferredSize => Size(100, Adapt.px(88));
 }
 
 class _AppToBar extends State<AppToBar> {

@@ -12,7 +12,6 @@ import 'package:permission_handler/permission_handler.dart';
 
 import '../common/AnimatedDialog.dart';
 import '../common/DialogLayout.dart';
-import '../common/Dialog.dart';
 import '../common/SplashPrivacy.dart';
 import '../router/Routes.dart';
 

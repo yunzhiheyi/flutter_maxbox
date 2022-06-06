@@ -13,6 +13,7 @@ import 'package:max_box/common/AndroidWinodwApp.dart';
 import 'package:flutter/services.dart';
 import './router/Routes.dart';
 import 'router/navigatorRouterObserver.dart';
+import 'utils/adApt.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -52,8 +53,9 @@ void configLoading() {
     ..displayDuration = const Duration(milliseconds: 2000)
     ..indicatorType = EasyLoadingIndicatorType.ring
     ..loadingStyle = EasyLoadingStyle.custom
-    ..indicatorSize = 22.0
-    ..radius = 6.0
+    ..indicatorSize = Adapt.px(42)
+    ..radius = Adapt.px(8)
+    ..fontSize = Adapt.px(28)
     ..lineWidth = 2
     ..progressColor = Colors.white
     ..backgroundColor = Colors.transparent
@@ -66,10 +68,7 @@ void configLoading() {
     ..textColor = Colors.white
     ..maskColor = Color.fromRGBO(0, 0, 0, 0.5)
     ..userInteractions = true
-    // ..contentPadding = EdgeInsets.symmetric(
-    //   vertical: 15.0,
-    //   horizontal: 25.0,
-    // )
+    ..contentPadding = EdgeInsets.all(Adapt.px(25))
     ..dismissOnTap = false;
 }
 
@@ -92,7 +91,8 @@ class MyApp extends StatelessWidget {
         ],
         child: MaterialApp(
           navigatorObservers: [NavigatorRouterObserver()],
-          initialRoute: '/splash',
+          // initialRoute: '/splash',
+          initialRoute: '/home',
           // routes: AppRoutes.getRoutes(),
           localizationsDelegates: const [
             // 这行是关键
@@ -104,6 +104,9 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             brightness: Brightness.light,
             primaryColor: Colors.blue,
+            //点击的背景高亮颜色,处理阴影
+            highlightColor: Colors.transparent,
+            splashColor: Colors.transparent,
           ),
           // darkTheme: ThemeData.dark(),
           // home: Layout(),

@@ -73,8 +73,8 @@ class HomeContentRowState extends State<HomeContentRow>
               child: Stack(children: <Widget>[
                 GestureDetector(
                     onTap: () => {
-                          Routes.navigateTo(context, '/login', {},
-                              TransitionType.inFromBottom)
+                          Routes.navigateTo(context, '/textvoice', {},
+                              TransitionType.cupertino)
                         },
                     child: Container(
                         alignment: Alignment.center,

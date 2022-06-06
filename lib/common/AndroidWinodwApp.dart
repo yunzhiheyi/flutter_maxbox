@@ -72,7 +72,7 @@ class _teleprompterWindowState extends State<teleprompterWindowPage> {
 
   @override
   Widget build(BuildContext context) {
-    return ToggleRotate(
+    return AnimatToggleRotate(
         beginAngle: begin_counter, // 起始角度
         endAngle: end_counter, // 终止角度
         curve: Curves.linear, // 动画曲线
@@ -82,8 +82,6 @@ class _teleprompterWindowState extends State<teleprompterWindowPage> {
           setState(() {
             begin_counter = end_counter;
           });
-          // AndroidWindow.resize(600, 600);
-          //  AndroidWindow.setPosition(0, 0);
         },
         child: AndroidWindow(
           child: Scaffold(
