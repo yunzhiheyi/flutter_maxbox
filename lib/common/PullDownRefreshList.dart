@@ -8,7 +8,6 @@ import 'package:max_box/utils/adApt.dart';
 // import 'package:max_box/common/HomeSwiper.dart';
 import 'friend_card.dart';
 import 'dart:ui';
-// import 'package:fluttertoast/fluttertoast.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
