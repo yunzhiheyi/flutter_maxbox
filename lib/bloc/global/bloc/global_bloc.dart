@@ -17,23 +17,19 @@ const throttleDuration = Duration(milliseconds: 100);
 
 class GlobalBloc extends Bloc<GlobalEvent, GlobalState> {
   GlobalBloc() : super(const GlobalState()) {
-    on<getGlobalData>(
+    on<getGlobalDataActiveText>(
       _onFetched,
       transformer: throttleDroppable(throttleDuration),
     );
   }
 
   Future<void> _onFetched(
-    getGlobalData event,
+    getGlobalDataActiveText event,
     Emitter<GlobalState> emit,
   ) async {
-    print(event.winBottom);
     emit(
       state.copyWith(
-        windowWidth: event.winWidth,
-        windowHeight: event.winHeight,
-        windowTop: event.winTop,
-        windowBottom: event.winBottom,
+        activeText: event.activeText,
       ),
     );
   }

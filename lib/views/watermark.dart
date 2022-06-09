@@ -35,9 +35,8 @@ class WatermarkIndexState extends State<WatermarkIndex>
     super.initState();
     _ContentEditController = TextEditingController();
     _controller = VideoPlayerController.network(
-        'https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4'
-        // 'https://oss.taicibao.com/video/vip.mp4'
-        );
+        // 'https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4'
+        'https://oss.taicibao.com/video/vip.mp4');
 
     _initializeVideoPlayerFuture = _controller.initialize();
   }
@@ -174,11 +173,6 @@ class WatermarkIndexState extends State<WatermarkIndex>
                                       : _controller.play();
                                 });
                               },
-
-                              //子组件为按钮图标
-                              //_controller.value.isPlaying：判断视频是否正在播放
-                              //Icons.pause：如果是则显示这个图标
-                              //Icons.play_arrow：如果不是，则显示这个图标
                               child: Icon(
                                 _controller.value.isPlaying
                                     ? Icons.pause

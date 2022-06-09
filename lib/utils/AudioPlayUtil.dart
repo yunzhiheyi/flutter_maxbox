@@ -1,4 +1,4 @@
-// ignore_for_file: avoid_print, unnecessary_null_comparison, unnecessary_brace_in_string_interps
+// ignore_for_file: avoid_print, unnecessary_null_comparison, unnecessary_brace_in_string_interps, file_names
 
 import 'package:audioplayers/audioplayers.dart';
 
@@ -29,6 +29,12 @@ class AudioPlayUtil {
   /// 继续播放
   Future continuePlay() async {
     int result = await audioPlayer.resume();
+    return result;
+  }
+
+  /// 继续播放
+  Future reset() async {
+    int result = await audioPlayer.stop();
     return result;
   }
 

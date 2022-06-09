@@ -2,35 +2,25 @@
 part of 'global_bloc.dart';
 
 class GlobalState extends Equatable {
-  const GlobalState(
-      {this.windowWidth = 0,
-      this.windowHeight = 0,
-      this.windowTop = 0,
-      this.windowBottom = 0});
-  final double windowWidth;
-  final double windowHeight;
-  final double windowTop;
-  final double windowBottom;
-  GlobalState copyWith(
-      {double? windowWidth,
-      double? windowHeight,
-      double? windowTop,
-      double? windowBottom}) {
+  const GlobalState({
+    this.activeText = false,
+  });
+  final bool activeText;
+  GlobalState copyWith({
+    bool? activeText,
+  }) {
     return GlobalState(
-        windowWidth: windowWidth ?? this.windowWidth,
-        windowHeight: windowHeight ?? this.windowHeight,
-        windowTop: windowTop ?? this.windowTop,
-        windowBottom: windowBottom ?? this.windowBottom);
+      activeText: activeText ?? this.activeText,
+    );
   }
 
   @override
   String toString() {
-    return '''GlobalState { windowWidth: $windowWidth,windowHeight: $windowHeight,windowTop:$windowTop,windowBottom:$windowBottom} }''';
+    return '''GlobalState { activeText: $activeText} }''';
   }
 
   @override
-  List<Object> get props =>
-      [windowWidth, windowHeight, windowTop, windowBottom];
+  List<Object> get props => [activeText];
 }
 
 class GlobalInitial extends GlobalState {}

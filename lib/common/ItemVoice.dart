@@ -1,27 +1,28 @@
-// ignore_for_file: library_private_types_in_public_api, file_names, prefer_const_constructors, unnecessary_const, unused_local_variable
+// ignore_for_file: library_private_types_in_public_api, file_names, prefer_const_constructors, unnecessary_const, unused_local_variable, no_leading_underscores_for_local_identifiers
 
 // import 'package:assets_audio_player/assets_audio_player.dart';
+// import 'package:audioplayers/audioplayers.dart';
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import '../utils/AudioPlayUtil.dart';
 import '../utils/adApt.dart';
 
 class ItemVoice extends StatefulWidget {
-  final VoidCallback? onConfirm;
-  final VoidCallback? onCancel;
   final Widget? child;
-  final String? title;
-  final String? cancelTitle;
-  final String? confirmTitle;
-  final bool enableScrollInput;
+  final String title;
+  final ValueChanged<int>? onChange;
+  final int value;
+  final int? groupValue;
+  final String url;
+  final String subtitle;
   const ItemVoice(
       {Key? key,
-      this.onConfirm,
-      this.title,
-      this.enableScrollInput = true,
-      this.confirmTitle,
-      this.cancelTitle,
-      this.onCancel,
+      required this.title,
+      this.groupValue,
+      required this.url,
+      required this.subtitle,
+      required this.value,
+      this.onChange,
       this.child})
       : super(key: key);
 
@@ -31,22 +32,35 @@ class ItemVoice extends StatefulWidget {
 
 class _ItemVoiceState extends State<ItemVoice> {
   bool isPlay = false;
-  bool isPlayCompleted = false;
   int success = 0;
+  bool isPlayCompleted = false;
 
   @override
   void initState() {
     super.initState();
-    // openAudio();
   }
 
   @override
   void dispose() {
     super.dispose();
+    AudioPlayUtil().reset();
+  }
+
+  @override
+  void didUpdateWidget(ItemVoice oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.groupValue != oldWidget.groupValue) {
+      if (widget.groupValue == 0) {
+        isPlayCompleted = false;
+        isPlay = false;
+      }
+    }
   }
 
   @override
   Widget build(BuildContext context) {
+    isPlayCompleted = widget.value == widget.groupValue;
+    int _groupValue = widget.value;
     return Container(
         width: Adapt.px(180),
         decoration: BoxDecoration(
@@ -62,36 +76,36 @@ class _ItemVoiceState extends State<ItemVoice> {
           leading: CircleAvatar(
             backgroundImage: AssetImage('assets/images/icon-female.png'),
           ),
-          title: Text('艾其', style: TextStyle(fontSize: Adapt.px(26))),
-          subtitle: Text('温柔女声', style: TextStyle(fontSize: Adapt.px(22))),
+          title: Text(widget.title, style: TextStyle(fontSize: Adapt.px(26))),
+          subtitle:
+              Text(widget.subtitle, style: TextStyle(fontSize: Adapt.px(22))),
           trailing: GestureDetector(
               onTap: () async {
-                if (!isPlay) {
+                widget.onChange?.call(_groupValue);
+                // 选择外边框
+                if (isPlayCompleted) {
                   setState(() {
                     isPlayCompleted = true;
                   });
-                  success = await AudioPlayUtil().play(
-                      'https://cdn.maxbox.com.cn/upload/5faa3a39fdab4747b518a3fb9f9432f0.mp3');
+                } else {
+                  setState(() {
+                    isPlayCompleted = false;
+                    _groupValue = 0;
+                  });
+                }
+                // 反选播放
+                if (!isPlay) {
+                  success = await AudioPlayUtil().play(widget.url);
                 } else {
                   await AudioPlayUtil().pause();
                 }
+
                 setState(() {
                   isPlay = !isPlay;
                 });
-                AudioPlayUtil()
-                    .audioPlayer
-                    .onPlayerStateChanged
-                    .listen((PlayerState playerState) {
-                  if (playerState == PlayerState.COMPLETED) {
-                    setState(() {
-                      isPlayCompleted = false;
-                      isPlay = false;
-                    });
-                  }
-                });
               },
               child: Icon(
-                isPlay ? Icons.pause : Icons.play_arrow,
+                isPlay && isPlayCompleted ? Icons.pause : Icons.play_arrow,
                 size: Adapt.px(32),
                 color: Colors.white,
               )),

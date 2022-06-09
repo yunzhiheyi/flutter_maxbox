@@ -71,7 +71,7 @@ class TeleprompterHeadState extends State<TeleprompterHead>
           AppButton(
               title: '+文本',
               onTap: () {
-                Routes.navigateTo(context, '/teleprompter/text',
+                Routes.navigateTo(context, '/home/teleprompter/text',
                     {'type': 'add'}, TransitionType.cupertino);
               },
               width: 107,

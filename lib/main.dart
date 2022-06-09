@@ -91,8 +91,8 @@ class MyApp extends StatelessWidget {
         ],
         child: MaterialApp(
           navigatorObservers: [NavigatorRouterObserver()],
-          // initialRoute: '/splash',
-          initialRoute: '/home',
+          initialRoute: '/splash',
+          // initialRoute: '/home',
           // routes: AppRoutes.getRoutes(),
           localizationsDelegates: const [
             // 这行是关键

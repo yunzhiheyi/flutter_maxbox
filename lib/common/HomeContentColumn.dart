@@ -30,8 +30,8 @@ class HomeContentColumnState extends State<HomeContentColumn>
         Stack(children: <Widget>[
           GestureDetector(
               onTap: () => {
-                    Routes.navigateTo(
-                        context, '/videotext', {}, TransitionType.cupertino)
+                    Routes.navigateTo(context, '/home/videotext', {},
+                        TransitionType.cupertino)
                   },
               child: Container(
                   height: Adapt.px(160),
@@ -134,8 +134,8 @@ class HomeContentColumnState extends State<HomeContentColumn>
         Stack(children: <Widget>[
           GestureDetector(
               onTap: () => {
-                    Routes.navigateTo(
-                        context, '/teleprompter', {}, TransitionType.cupertino)
+                    Routes.navigateTo(context, '/home/teleprompter', {},
+                        TransitionType.cupertino)
                   },
               child: Container(
                   height: Adapt.px(160),
@@ -186,8 +186,8 @@ class HomeContentColumnState extends State<HomeContentColumn>
         Stack(children: <Widget>[
           GestureDetector(
               onTap: () => {
-                    Routes.navigateTo(
-                        context, '/teleprompter', {}, TransitionType.cupertino)
+                    Routes.navigateTo(context, '/home/teleprompter', {},
+                        TransitionType.cupertino)
                   },
               child: Container(
                   height: Adapt.px(160),

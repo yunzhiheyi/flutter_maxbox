@@ -5,7 +5,6 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:max_box/bloc/global/bloc/global_bloc.dart';
 import 'package:max_box/common/AppToBar.dart';
 import 'package:android_window/main.dart' as android_window;
 import 'package:max_box/common/PullDownRefreshList.dart';
@@ -41,15 +40,6 @@ class TeleprompterList extends StatelessWidget {
         ));
     double winWidth = window.physicalSize.width.toDouble();
     double winHeight = window.physicalSize.height.toDouble();
-    double bottomPadding = MediaQuery.of(context).padding.bottom;
-    double topPadding = MediaQuery.of(context).padding.bottom;
-    context.read<GlobalBloc>().add(getGlobalData(
-          winWidth: winWidth,
-          winHeight: winHeight,
-          winTop: topPadding,
-          winBottom: bottomPadding,
-        ));
-
     return Scaffold(
       backgroundColor: const Color.fromRGBO(47, 47, 47, 1),
       body: Column(children: <Widget>[

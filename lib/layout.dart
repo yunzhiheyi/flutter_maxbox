@@ -56,14 +56,9 @@ class _LayoutDataState extends State<LayoutData> {
 
   @override
   Widget build(BuildContext context) {
-    double bottomPadding = MediaQuery.of(context).padding.bottom;
-    double topPadding = MediaQuery.of(context).padding.bottom;
-    context.read<GlobalBloc>().add(getGlobalData(
-          winWidth: winWidth,
-          winHeight: winHeight,
-          winTop: topPadding,
-          winBottom: bottomPadding,
-        ));
+    // double bottomPadding = MediaQuery.of(context).padding.bottom;
+    // double topPadding = MediaQuery.of(context).padding.bottom;
+
     // ignore: unused_element
     Color getColor(int value) {
       return _currentIndex == value
@@ -81,7 +76,7 @@ class _LayoutDataState extends State<LayoutData> {
                 0,
                 UniversalPlatform.isAndroid
                     ? Adapt.px(8)
-                    : Adapt.px(bottomPadding + 6)),
+                    : Adapt.px(Adapt.padBotH() + 6)),
             // decoration: const BoxDecoration(
             //   boxShadow: [
             //     BoxShadow(

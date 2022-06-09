@@ -32,7 +32,7 @@ class HomeContentRowState extends State<HomeContentRow>
               child: Stack(children: <Widget>[
                 GestureDetector(
                     onTap: () => {
-                          Routes.navigateTo(context, '/teleprompter', {},
+                          Routes.navigateTo(context, '/home/teleprompter', {},
                               TransitionType.cupertino)
                         },
                     child: Container(
@@ -73,7 +73,7 @@ class HomeContentRowState extends State<HomeContentRow>
               child: Stack(children: <Widget>[
                 GestureDetector(
                     onTap: () => {
-                          Routes.navigateTo(context, '/textvoice', {},
+                          Routes.navigateTo(context, '/home/textvoice', {},
                               TransitionType.cupertino)
                         },
                     child: Container(
@@ -114,8 +114,8 @@ class HomeContentRowState extends State<HomeContentRow>
               child: Stack(children: <Widget>[
                 GestureDetector(
                   onTap: () => {
-                    Routes.navigateTo(
-                        context, '/watermark', {}, TransitionType.cupertino)
+                    Routes.navigateTo(context, '/home/watermark', {},
+                        TransitionType.cupertino)
                   },
                   child: Container(
                       alignment: Alignment.center,

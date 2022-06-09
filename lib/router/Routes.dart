@@ -54,28 +54,28 @@ class Routes {
       return const LoginCode();
     }));
     //提词器
-    router.define('/teleprompter', handler: Handler(
+    router.define('/home/teleprompter', handler: Handler(
         handlerFunc: (BuildContext? context, Map<String, dynamic> params) {
       return TeleprompterIndex();
     }));
     //提词器编辑
-    router.define('/teleprompter/text', handler: Handler(
+    router.define('/home/teleprompter/text', handler: Handler(
         handlerFunc: (BuildContext? context, Map<String, dynamic> params) {
       return TeleprompterText(params: paramsData(params));
     }));
     //去水印
-    router.define('/watermark', handler: Handler(
+    router.define('/home/watermark', handler: Handler(
         handlerFunc: (BuildContext? context, Map<String, dynamic> params) {
       return WatermarkIndex(params: paramsData(params));
     }));
 
     //文字转语音
-    router.define('/textvoice', handler: Handler(
+    router.define('/home/textvoice', handler: Handler(
         handlerFunc: (BuildContext? context, Map<String, dynamic> params) {
       return TextToVoice(params: paramsData(params));
     }));
     //视频转文字
-    router.define('/videotext', handler: Handler(
+    router.define('/home/videotext', handler: Handler(
         handlerFunc: (BuildContext? context, Map<String, dynamic> params) {
       return VideoTotext(params: paramsData(params));
     }));
