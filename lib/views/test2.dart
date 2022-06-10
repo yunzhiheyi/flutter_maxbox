@@ -17,7 +17,6 @@ class testHome extends StatelessWidget {
       children: [
         AppToBar(
           title: '二级测试路由',
-          child: Text(''),
         ),
         Expanded(
             child: Center(

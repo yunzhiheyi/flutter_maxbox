@@ -18,7 +18,6 @@ class testHome extends StatelessWidget {
     return Column(children: [
       const AppToBar(
         title: '测试路由',
-        child: Text(''),
       ),
       SizedBox(
         height: 20,

@@ -7,6 +7,7 @@ import 'package:max_box/views/teleprompter.dart';
 import 'package:max_box/views/teleprompterText.dart';
 import 'package:max_box/views/test.dart';
 import 'package:max_box/views/videoTotext.dart';
+import '../views/conversionDetails.dart';
 import '../views/login.dart';
 import '../views/splash.dart';
 import '../views/watermark.dart';
@@ -78,6 +79,11 @@ class Routes {
     router.define('/home/videotext', handler: Handler(
         handlerFunc: (BuildContext? context, Map<String, dynamic> params) {
       return VideoTotext(params: paramsData(params));
+    }));
+    //转换记录
+    router.define('/home/videotext/conversiondetails', handler: Handler(
+        handlerFunc: (BuildContext? context, Map<String, dynamic> params) {
+      return ConversionDetails(params: paramsData(params));
     }));
     //配置webview
     router.define('/test', handler: Handler(

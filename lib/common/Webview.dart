@@ -87,7 +87,7 @@ class _WebViewPage extends State<WebViewPage> {
   _buildBody() {
     return Column(
       children: <Widget>[
-        AppToBar(title: widget.title, child: Text('')),
+        AppToBar(title: widget.title),
         SizedBox(
           height: widget.isAppBar ? 1 : 0,
           width: double.infinity,

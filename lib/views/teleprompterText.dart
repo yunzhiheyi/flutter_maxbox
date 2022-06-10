@@ -44,18 +44,17 @@ class TeleprompterTextState extends State<TeleprompterText>
           child: Column(children: <Widget>[
             AppToBar(
                 title: widget.params['type'] == 'add' ? '添加文本' : '编辑文本',
-                child: AppButton(
+                rightChild: AppButton(
                     title: '保存',
                     type: 'gradient',
                     onTap: () {
                       showModalBottomSheet(
                           context: context,
-                          barrierColor: Color.fromARGB(46, 209, 209, 209),
+                          barrierColor: Color(0x2DD1D1D1),
                           backgroundColor: Colors.transparent,
                           builder: (BuildContext context) {
                             return Container(
-                                height: Adapt.px(220 + bottomPadding) +
-                                    bottomPadding,
+                                height: Adapt.px(298) + Adapt.padBotH(),
                                 alignment: Alignment.topCenter,
                                 decoration: BoxDecoration(
                                     color: Color.fromARGB(255, 255, 255, 255),

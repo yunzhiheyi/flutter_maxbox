@@ -65,7 +65,7 @@ class TextToVoiceState extends State<TextToVoice>
     return Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: const Color.fromRGBO(47, 47, 47, 1),
-        appBar: AppToBar(title: '文字转语音', child: Text('')),
+        appBar: AppToBar(title: '文字转语音'),
         bottomNavigationBar: Container(
             margin: EdgeInsets.fromLTRB(0, Adapt.px(0), 0, Adapt.padBotH()),
             child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [

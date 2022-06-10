@@ -45,7 +45,7 @@ class TeleprompterList extends StatelessWidget {
       body: Column(children: <Widget>[
         AppToBar(
             title: '提词器',
-            child: IconButton(
+            rightChild: IconButton(
                 icon: Icon(
                   Icons.settings,
                   size: Adapt.px(40),

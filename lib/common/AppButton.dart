@@ -93,11 +93,12 @@ class _AppButtonState extends State<AppButton> {
                             color: widget.borderColor ?? Colors.white,
                             width: 0.5),
                       ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+            child: Wrap(
+              alignment: WrapAlignment.center,
+              direction: Axis.vertical,
               children: [
-                Container(
-                    margin: EdgeInsets.only(
+                Padding(
+                    padding: EdgeInsets.only(
                         right: Adapt.px(widget.icon != null ? 15 : 0)),
                     child: widget.icon),
                 Text(widget.title,

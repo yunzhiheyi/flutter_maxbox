@@ -10,6 +10,7 @@ import 'package:video_player/video_player.dart';
 
 import '../common/AppButton.dart';
 import '../common/ItemVoice.dart';
+import '../common/conversionRecord.dart';
 import '../ui/collapse.dart';
 
 class VideoTotext extends StatefulWidget {
@@ -36,10 +37,18 @@ class VideoTotextState extends State<VideoTotext>
     return Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: const Color.fromRGBO(47, 47, 47, 1),
-        appBar: AppToBar(title: '音视频提取文字', child: Text('')),
+        appBar: AppToBar(title: '音视频提取文字'),
         floatingActionButton: FloatingActionButton(
             onPressed: () {
-              // _player.play();
+              showModalBottomSheet(
+                  context: context,
+                  barrierColor: Color(0x2DD1D1D1),
+                  backgroundColor: Colors.transparent,
+                  builder: (BuildContext context) {
+                    return ConversionRecord(onTap: (bool isOp) {
+                      Navigator.pop(context);
+                    });
+                  });
             },
             child: Icon(
               Icons.color_lens_sharp,

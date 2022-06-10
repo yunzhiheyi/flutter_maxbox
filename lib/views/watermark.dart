@@ -53,7 +53,7 @@ class WatermarkIndexState extends State<WatermarkIndex>
             FocusScope.of(context).requestFocus(FocusNode());
           },
           child: Column(children: <Widget>[
-            AppToBar(title: '视频去水印', child: Text('')),
+            AppToBar(title: '视频去水印'),
             Container(
                 height: Adapt.px(150),
                 margin: EdgeInsets.fromLTRB(
