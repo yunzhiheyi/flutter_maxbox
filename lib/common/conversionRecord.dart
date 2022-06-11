@@ -15,7 +15,14 @@ import 'ItemRecord.dart';
 class ConversionRecord extends StatefulWidget {
   final ValueChanged<bool>? onTap;
   final bool isBack;
-  ConversionRecord({Key? key, this.onTap, this.isBack = false})
+  final String title;
+  final String type;
+  ConversionRecord(
+      {Key? key,
+      required this.title,
+      required this.type,
+      this.onTap,
+      this.isBack = false})
       : super(key: key);
   @override
   State<StatefulWidget> createState() => ConversionRecordState();
@@ -44,7 +51,7 @@ class ConversionRecordState extends State<ConversionRecord>
           padding: EdgeInsets.only(bottom: Adapt.padBotH()),
           child: Column(children: [
             AppToBar(
-                title: '转换记录',
+                title: widget.title,
                 isBack: widget.isBack,
                 type: 'white',
                 posRight: 0,
@@ -56,20 +63,22 @@ class ConversionRecordState extends State<ConversionRecord>
                       color: Colors.black,
                     ),
                     onPressed: _onPressedSubmit)),
-            Container(
-              alignment: Alignment.centerLeft,
-              padding: EdgeInsets.only(
-                  top: 0,
-                  left: Adapt.px(36),
-                  right: Adapt.px(36),
-                  bottom: Adapt.px(26)),
-              child: Text(
-                '备注：大文件转换过程中时间略长，请勿频繁查询结果',
-                style: TextStyle(
-                    color: Color.fromARGB(255, 245, 10, 10),
-                    fontSize: Adapt.px(24)),
-              ),
-            ),
+            Visibility(
+                visible: widget.type != 'pic',
+                child: Container(
+                  alignment: Alignment.centerLeft,
+                  padding: EdgeInsets.only(
+                      top: 0,
+                      left: Adapt.px(36),
+                      right: Adapt.px(36),
+                      bottom: Adapt.px(26)),
+                  child: Text(
+                    '备注：大文件转换提取过程中时间略长，请勿频繁查询结果',
+                    style: TextStyle(
+                        color: Color.fromARGB(255, 245, 10, 10),
+                        fontSize: Adapt.px(24)),
+                  ),
+                )),
             Expanded(
                 child: SingleChildScrollView(
                     physics: const BouncingScrollPhysics(),

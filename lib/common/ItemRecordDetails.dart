@@ -5,14 +5,14 @@ import '../utils/adApt.dart';
 
 class ItemRecordDetails extends StatefulWidget {
   final Widget? child;
-  // final String title;
+  final String title;
   final ValueChanged<int>? onChange;
   final int? state;
   // final int? data;
   // final String subtitle;
   const ItemRecordDetails(
       {Key? key,
-      // required this.title,
+      required this.title,
       // required this.subtitle,
       this.onChange,
       this.state,
@@ -37,24 +37,28 @@ class _ItemRecordDetailsState extends State<ItemRecordDetails> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: double.infinity,
       // padding: EdgeInsets.only(top: Adapt.px(6), bottom: Adapt.px(6)),
       margin:
-          EdgeInsets.only(left: Adapt.px(26), right: 0, bottom: Adapt.px(26)),
+          EdgeInsets.only(left: Adapt.px(26), right: 0, bottom: Adapt.px(20)),
       child: Stack(children: [
         Container(
             padding: EdgeInsets.only(
               right: Adapt.px(176),
             ),
-            child: Text(
-                '测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试',
-                style: TextStyle(color: Color.fromARGB(255, 192, 192, 192)))),
+            child: Text(widget.title,
+                style: TextStyle(
+                    fontSize: Adapt.px(24),
+                    color: Color.fromARGB(255, 192, 192, 192)))),
         Positioned(
-            top: 0,
+            top: Adapt.px(2),
             right: Adapt.px(86),
-            child: Text('02:00', style: TextStyle(color: Color(0xFF9E9E9E)))),
+            child: Text('02:00',
+                style: TextStyle(
+                    fontSize: Adapt.px(24), color: Color(0xFF9E9E9E)))),
         Positioned(
-            top: Adapt.px(12),
-            right: Adapt.px(19),
+            top: Adapt.px(16),
+            right: Adapt.px(25),
             child: Container(
               width: Adapt.px(60),
               height: Adapt.px(2),

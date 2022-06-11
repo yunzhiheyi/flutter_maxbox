@@ -1,4 +1,4 @@
-// ignore_for_file: use_key_in_widget_constructors, library_private_types_in_public_api, unnecessary_new, prefer_const_constructors, sort_child_properties_last, use_build_context_synchronously, unused_import
+// ignore_for_file: use_key_in_widget_constructors, library_private_types_in_public_api, unnecessary_new, prefer_const_constructors, sort_child_properties_last, use_build_context_synchronously, unused_import, avoid_unnecessary_containers, avoid_print
 
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
@@ -7,6 +7,8 @@ import 'package:max_box/router/Routes.dart';
 import 'package:max_box/utils/LocalStorage.dart';
 //final demos = AppRoutes.getDemos();
 import 'package:max_box/utils/adApt.dart';
+
+import '../common/IconText.dart';
 // import 'package:max_box/common/Myitem.dart';
 
 class User extends StatefulWidget {
@@ -18,38 +20,56 @@ class _UserState extends State<User> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.light);
-    final double topPadding = MediaQuery.of(context).padding.top;
-    return new Scaffold(
+    // final double topPadding = MediaQuery.of(context).padding.top;
+    return Scaffold(
       backgroundColor: const Color.fromRGBO(47, 47, 47, 1),
-      body: Wrap(direction: Axis.vertical, children: <Widget>[
-        Row(
-          children: <Widget>[
-            Container(
-                width: Adapt.px(120),
-                height: Adapt.px(120),
-                margin: EdgeInsets.fromLTRB(
-                    Adapt.px(35), Adapt.px(80 + topPadding), Adapt.px(35), 0),
-                child: Image.asset("assets/images/icon-avatar.png",
-                    width: Adapt.px(120), height: Adapt.px(120))),
-            Wrap(direction: Axis.vertical, children: <Widget>[
-              Container(
-                  margin:
-                      EdgeInsets.fromLTRB(0, Adapt.px(110), 0, Adapt.px(15)),
-                  child: Text('177****3715',
-                      style: TextStyle(
-                          fontSize: Adapt.px(34), color: Colors.white))),
-              Image.asset(
-                "assets/images/icon-vip.png",
-                width: Adapt.px(138),
+      body: Column(children: <Widget>[
+        Stack(children: [
+          Container(
+              margin: EdgeInsets.only(
+                  top: Adapt.padTopH() + Adapt.px(40), bottom: Adapt.px(40)),
+              padding: EdgeInsets.only(
+                left: Adapt.px(25),
               ),
-            ]),
-          ],
-        ),
+              child: GridTileBar(
+                leading: Image.asset("assets/images/icon-avatar.png",
+                    width: Adapt.px(100), height: Adapt.px(100)),
+                title: Padding(
+                    padding: EdgeInsets.only(
+                      left: Adapt.px(15),
+                    ),
+                    child: Text('Ta_ESESSD_001',
+                        style: TextStyle(
+                            color: Color(0xFFFFFFFF), fontSize: Adapt.px(36)))),
+                subtitle: Padding(
+                    padding:
+                        EdgeInsets.only(top: Adapt.px(15), left: Adapt.px(15)),
+                    child: Text('177****3715',
+                        style: TextStyle(
+                            fontSize: Adapt.px(28), color: Color(0xFF9E9E9E)))),
+              )),
+          Positioned(
+              top: Adapt.padTopH() + Adapt.px(64),
+              right: Adapt.px(28),
+              child: IconText(
+                  direction: Axis.horizontal,
+                  mod: modType.after,
+                  title: '普通会员',
+                  onTap: () {
+                    print('普通会员');
+                  },
+                  fontSize: 24,
+                  icon: Icon(
+                    Icons.arrow_forward_ios_outlined,
+                    size: Adapt.px(24),
+                    color: Color.fromARGB(255, 255, 255, 255),
+                  )))
+        ]),
         Container(
           width: Adapt.px(680),
           height: Adapt.px(180),
-          margin: EdgeInsets.fromLTRB(
-              Adapt.px(35), Adapt.px(28), Adapt.px(35), Adapt.px(35)),
+          margin:
+              EdgeInsets.fromLTRB(Adapt.px(35), 0, Adapt.px(35), Adapt.px(25)),
           child: GestureDetector(
               onTap: () {
                 Routes.navigateTo(context, '/webview', {
@@ -64,8 +84,10 @@ class _UserState extends State<User> {
                 fit: BoxFit.contain,
               ))),
         ),
-        _buildItem(context, 'icon-my-1', '会员中心', '', '1'),
-        _buildItem(context, 'icon-my-2', '邀请有礼', '送VIP会员', '1'),
+        _buildItem(context, 'icon-my-1', '我的订单', '', '1'),
+        _buildItem(context, 'icon-my-1', '我的时长', '5分钟', '1'),
+        _buildItem(context, 'icon-my-1', '使用记录', '', '1'),
+        _buildItem(context, 'icon-my-2', '邀请有礼', '送时长卡', '1'),
         Container(
             width: Adapt.px(680),
             height: Adapt.px(1),
@@ -75,28 +97,6 @@ class _UserState extends State<User> {
         _buildItem(context, 'icon-my-3', '帮助中心', '', '1'),
         _buildItem(context, 'icon-my-4', '在线反馈', '', '1'),
         _buildItem(context, 'icon-my-5', '关于我们', 'v1.0.0', '1'),
-        // Container(
-        //   margin:
-        //       EdgeInsets.fromLTRB(Adapt.px(45), Adapt.px(35), Adapt.px(45), 0),
-        //   child: RawMaterialButton(
-        //     elevation: 1,
-        //     fillColor: Color.fromARGB(255, 224, 224, 222),
-        //     splashColor: Colors.blue,
-        //     textStyle: TextStyle(color: Colors.black),
-        //     onLongPress: () => debugPrint('onLongPress'),
-        //     child: Text('退出', style: TextStyle(fontSize: Adapt.px(34))),
-        //     constraints: BoxConstraints(
-        //         minHeight: Adapt.px(90), minWidth: Adapt.px(670)),
-        //     onPressed: () async {
-        //       // 移除Token和用户信息
-        //       await LocalStorage.remove(LocalStorage.accessTokenKey);
-        //       await LocalStorage.remove(LocalStorage.userInfoKey);
-        //       Routes.navigateTo(
-        //           context, '/login', {}, TransitionType.inFromBottom);
-        //     },
-        //     shape: StadiumBorder(), // 圆角
-        //   ),
-        // ),
       ]),
     );
   }
@@ -140,12 +140,14 @@ class _UserState extends State<User> {
                               fontSize: Adapt.px(28),
                               color: Colors.white,
                               fontWeight: FontWeight.bold))),
-                  Text(lastTitle,
-                      style: TextStyle(
-                          fontSize: Adapt.px(28),
-                          color: headIcon == 'icon-my-2'
-                              ? Color.fromARGB(255, 226, 177, 42)
-                              : Color.fromARGB(255, 148, 148, 148))),
+                  Padding(
+                      padding: EdgeInsets.only(right: Adapt.px(10)),
+                      child: Text(lastTitle,
+                          style: TextStyle(
+                              fontSize: Adapt.px(26),
+                              color: headIcon == 'icon-my-2'
+                                  ? Color.fromARGB(255, 226, 177, 42)
+                                  : Color.fromARGB(255, 148, 148, 148)))),
                   Icon(
                     Icons.arrow_forward_ios_rounded,
                     size: Adapt.px(30),

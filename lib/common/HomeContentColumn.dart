@@ -30,8 +30,8 @@ class HomeContentColumnState extends State<HomeContentColumn>
         Stack(children: <Widget>[
           GestureDetector(
               onTap: () => {
-                    Routes.navigateTo(context, '/home/videotext', {},
-                        TransitionType.cupertino)
+                    Routes.navigateTo(context, '/home/videotext',
+                        {'type': 'text'}, TransitionType.cupertino)
                   },
               child: Container(
                   height: Adapt.px(160),
@@ -82,8 +82,8 @@ class HomeContentColumnState extends State<HomeContentColumn>
         Stack(children: <Widget>[
           GestureDetector(
               onTap: () => {
-                    Routes.navigateTo(
-                        context, '/login', {}, TransitionType.inFromBottom)
+                    Routes.navigateTo(context, '/home/videotext',
+                        {'type': 'voice'}, TransitionType.cupertino)
                   },
               child: Container(
                   height: Adapt.px(160),
@@ -108,7 +108,7 @@ class HomeContentColumnState extends State<HomeContentColumn>
                                   margin: EdgeInsets.fromLTRB(
                                       Adapt.px(24), 0, 0, 0),
                                   child: Text(
-                                    '视频提取语音',
+                                    '视频提取音频',
                                     style: TextStyle(
                                       fontSize: Adapt.px(28),
                                       color: const Color(0xFFFFFFFF),
@@ -134,8 +134,8 @@ class HomeContentColumnState extends State<HomeContentColumn>
         Stack(children: <Widget>[
           GestureDetector(
               onTap: () => {
-                    Routes.navigateTo(context, '/home/teleprompter', {},
-                        TransitionType.cupertino)
+                    Routes.navigateTo(context, '/home/videotext',
+                        {'type': 'voice'}, TransitionType.cupertino)
                   },
               child: Container(
                   height: Adapt.px(160),
@@ -186,8 +186,8 @@ class HomeContentColumnState extends State<HomeContentColumn>
         Stack(children: <Widget>[
           GestureDetector(
               onTap: () => {
-                    Routes.navigateTo(context, '/home/teleprompter', {},
-                        TransitionType.cupertino)
+                    Routes.navigateTo(context, '/home/videotext',
+                        {'type': 'pic'}, TransitionType.cupertino)
                   },
               child: Container(
                   height: Adapt.px(160),

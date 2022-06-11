@@ -65,7 +65,8 @@ class _ConversionDetailsState extends State<ConversionDetails> {
                             fontSize: Adapt.px(26), color: Colors.white),
                       ),
                       Padding(
-                          padding: EdgeInsets.only(top: Adapt.px(2)),
+                          padding: EdgeInsets.only(
+                              top: Adapt.px(10), bottom: Adapt.px(8)),
                           child: Text(
                             '时长：00:06:25',
                             style: TextStyle(
@@ -81,7 +82,6 @@ class _ConversionDetailsState extends State<ConversionDetails> {
                           width: 120,
                           height: 36,
                           fontSize: Adapt.px(20),
-                          padding: EdgeInsets.only(top: Adapt.px(2)),
                           margin: EdgeInsets.only(
                               top: Adapt.px(6), left: 0, right: 0, bottom: 0),
                           radius: 40),
@@ -106,13 +106,30 @@ class _ConversionDetailsState extends State<ConversionDetails> {
                               physics: const BouncingScrollPhysics(),
                               scrollDirection: Axis.vertical,
                               child: Column(children: [
-                                ItemRecordDetails(),
-                                ItemRecordDetails(),
-                                ItemRecordDetails(),
-                                ItemRecordDetails(),
-                                ItemRecordDetails(),
-                                ItemRecordDetails(),
-                                ItemRecordDetails()
+                                ItemRecordDetails(
+                                  title: '地球之错，一次是遇见',
+                                ),
+                                ItemRecordDetails(
+                                  title: '那是代表多想你',
+                                ),
+                                ItemRecordDetails(
+                                  title:
+                                      '今天啊我用80万帐号来给大家做一条完整的视频分享，这条视频有点长，我不带货也是做其他的，我不带货也是做其他的',
+                                ),
+                                ItemRecordDetails(
+                                  title:
+                                      '测试测试测试测测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试试',
+                                ),
+                                ItemRecordDetails(
+                                  title:
+                                      '测试测试测试测测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试测试试',
+                                ),
+                                ItemRecordDetails(
+                                  title: '测试测试测试测测试测试测试测试测试测试测试测试测试测试测试测试试',
+                                ),
+                                ItemRecordDetails(
+                                  title: '测试测试测试测试',
+                                )
                               ]))),
                       Positioned(
                           right: 12,
@@ -138,9 +155,9 @@ class _ConversionDetailsState extends State<ConversionDetails> {
                   color: Color(0xFF373737),
                 ),
                 alignment: Alignment.center,
-                height: Adapt.px(180),
-                padding:
-                    EdgeInsets.only(bottom: Adapt.padBotH(), top: Adapt.px(14)),
+                // height: Adapt.px(120),
+                padding: EdgeInsets.only(
+                    bottom: Adapt.padBotH() + Adapt.px(14), top: Adapt.px(14)),
                 child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [

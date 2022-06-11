@@ -26,7 +26,6 @@ class VideoTotext extends StatefulWidget {
 class VideoTotextState extends State<VideoTotext>
     with SingleTickerProviderStateMixin {
   int labelIndex = 0;
-
   @override
   void initState() {
     super.initState();
@@ -34,10 +33,16 @@ class VideoTotextState extends State<VideoTotext>
 
   @override
   Widget build(BuildContext context) {
+    bool isText = widget.params['type'] == 'text';
     return Scaffold(
         resizeToAvoidBottomInset: false,
         backgroundColor: const Color.fromRGBO(47, 47, 47, 1),
-        appBar: AppToBar(title: '音视频提取文字'),
+        appBar: AppToBar(
+            title: widget.params['type'] == 'text'
+                ? '音视频提取文字'
+                : widget.params['type'] == 'pic'
+                    ? '图片转文字'
+                    : '视频提取音频'),
         floatingActionButton: FloatingActionButton(
             onPressed: () {
               showModalBottomSheet(
@@ -45,9 +50,16 @@ class VideoTotextState extends State<VideoTotext>
                   barrierColor: Color(0x2DD1D1D1),
                   backgroundColor: Colors.transparent,
                   builder: (BuildContext context) {
-                    return ConversionRecord(onTap: (bool isOp) {
-                      Navigator.pop(context);
-                    });
+                    return ConversionRecord(
+                        title: widget.params['type'] == 'text'
+                            ? '转换记录'
+                            : widget.params['type'] == 'pic'
+                                ? '图片转文字'
+                                : '提取记录',
+                        type: widget.params['type'],
+                        onTap: (bool isOp) {
+                          Navigator.pop(context);
+                        });
                   });
             },
             child: Icon(
@@ -89,76 +101,50 @@ class VideoTotextState extends State<VideoTotext>
                   color: Color(0xFF474747),
                   borderRadius: BorderRadius.all(Radius.circular(8.0)),
                 ),
-                padding: EdgeInsets.only(bottom: Adapt.px(12)),
+                padding: EdgeInsets.only(bottom: Adapt.px(32)),
                 margin: EdgeInsets.only(
                     top: Adapt.px(30),
                     bottom: Adapt.px(50),
                     left: Adapt.px(35),
                     right: Adapt.px(35)),
                 child: Column(children: <Widget>[
-                  ClipRRect(
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(8.0),
-                          topRight: Radius.circular(8.0)),
-                      child: Container(
-                        width: double.infinity,
-                        height: Adapt.px(80),
-                        decoration: BoxDecoration(
-                          // color: Color(0xFF3A3A3A),
-                          // border: Border.all(
-                          //     color: const Color(0xFF6A6A6A), width: 0.5),
-                          borderRadius: BorderRadius.all(Radius.circular(8.0)),
-                        ),
-                        child: ToggleSwitch(
-                          minWidth: Adapt.px(338),
-                          initialLabelIndex: labelIndex,
-                          cornerRadius: 0,
-                          fontSize: Adapt.px(30),
-                          activeFgColor: Colors.white,
-                          inactiveBgColor: Color(0xFF3A3A3A),
-                          inactiveFgColor: Color(0xFF9E9E9E),
-                          totalSwitches: 2,
-                          labels: ['视频', '音频'],
-                          // icons: [FontAwesomeIcons.mars, FontAwesomeIcons.venus],
-                          activeBgColors: [
-                            [Color(0xFF474747)],
-                            [Color(0xFF474747)],
-                          ],
-                          onToggle: (index) {
-                            print('switched to: $index');
-                          },
-                        ),
-                      )),
-                  Container(
-                    height: Adapt.px(130),
-                    decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 93, 93, 93),
-                      // border: Border.all(
-                      //     color: const Color(0xFF6A6A6A), width: 0.5),
-                      borderRadius: BorderRadius.all(Radius.circular(4.0)),
-                    ),
-                    margin: EdgeInsets.only(
-                      left: Adapt.px(42),
-                      right: Adapt.px(42),
-                      top: Adapt.px(36),
-                    ),
-                    child: GridTileBar(
-                      backgroundColor: Color(0x0F242424),
-                      leading: Icon(
-                        Icons.icecream,
-                        size: Adapt.px(62),
-                        color: Colors.white,
-                      ),
-                      title: Text('微信会话',
-                          style: TextStyle(fontSize: Adapt.px(26))),
-                      subtitle: Padding(
-                          padding: EdgeInsets.only(top: Adapt.px(6)),
-                          child: Text('从微信会员选择视频',
-                              style: TextStyle(
-                                  color: Color(0xFF9E9E9E),
-                                  fontSize: Adapt.px(22)))),
-                    ),
-                  ),
+                  Visibility(
+                      visible: widget.params['type'] != 'pic',
+                      child: ClipRRect(
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(8.0),
+                              topRight: Radius.circular(8.0)),
+                          child: Container(
+                            width: double.infinity,
+                            height: Adapt.px(80),
+                            decoration: BoxDecoration(
+                              // color: Color(0xFF3A3A3A),
+                              // border: Border.all(
+                              //     color: const Color(0xFF6A6A6A), width: 0.5),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(8.0)),
+                            ),
+                            child: ToggleSwitch(
+                              minWidth: Adapt.px(338),
+                              initialLabelIndex: labelIndex,
+                              cornerRadius: 0,
+                              fontSize: Adapt.px(30),
+                              activeFgColor: Colors.white,
+                              inactiveBgColor: Color(0xFF3A3A3A),
+                              inactiveFgColor: Color(0xFF9E9E9E),
+                              totalSwitches: 2,
+                              labels: ['视频', '音频'],
+                              // icons: [FontAwesomeIcons.mars, FontAwesomeIcons.venus],
+                              activeBgColors: [
+                                [Color(0xFF474747)],
+                                [Color(0xFF474747)],
+                              ],
+                              onToggle: (index) {
+                                print('switched to: $index');
+                              },
+                            ),
+                          ))),
+
                   Container(
                     height: Adapt.px(130),
                     decoration: BoxDecoration(
@@ -209,72 +195,89 @@ class VideoTotextState extends State<VideoTotext>
                         size: Adapt.px(62),
                         color: Colors.white,
                       ),
-                      title: Text('手机视频',
+                      title: Text(
+                          widget.params['type'] == 'pic' ? '文件管理器' : '手机视频',
                           style: TextStyle(fontSize: Adapt.px(26))),
                       subtitle: Padding(
                           padding: EdgeInsets.only(top: Adapt.px(6)),
-                          child: Text('从文件管理选择视频',
+                          child: Text(
+                              widget.params['type'] == 'pic'
+                                  ? '从文件管理选择图片'
+                                  : '从文件管理选择视频',
                               style: TextStyle(
                                   color: Color(0xFF9E9E9E),
                                   fontSize: Adapt.px(22)))),
                     ),
                   ),
-                  Container(
-                    height: Adapt.px(130),
-                    decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 93, 93, 93),
-                      // border: Border.all(
-                      //     color: const Color(0xFF6A6A6A), width: 0.5),
-                      borderRadius: BorderRadius.all(Radius.circular(4.0)),
-                    ),
-                    margin: EdgeInsets.only(
-                      left: Adapt.px(42),
-                      right: Adapt.px(42),
-                      top: Adapt.px(36),
-                    ),
-                    child: GridTileBar(
-                      backgroundColor: Color(0x0F242424),
-                      leading: Icon(
-                        Icons.icecream,
-                        size: Adapt.px(62),
-                        color: Colors.white,
-                      ),
-                      title: Text('在线识别',
-                          style: TextStyle(fontSize: Adapt.px(26))),
-                      subtitle: Padding(
-                          padding: EdgeInsets.only(top: Adapt.px(6)),
-                          child: Text('在线识别抖音、西瓜、快手等短视频',
-                              style: TextStyle(
-                                  color: Color(0xFF9E9E9E),
-                                  fontSize: Adapt.px(22)))),
-                    ),
-                  ),
+                  Visibility(
+                      visible: widget.params['type'] != 'pic',
+                      child: Container(
+                        height: Adapt.px(130),
+                        decoration: BoxDecoration(
+                          color: Color.fromARGB(255, 93, 93, 93),
+                          // border: Border.all(
+                          //     color: const Color(0xFF6A6A6A), width: 0.5),
+                          borderRadius: BorderRadius.all(Radius.circular(4.0)),
+                        ),
+                        margin: EdgeInsets.only(
+                          left: Adapt.px(42),
+                          right: Adapt.px(42),
+                          top: Adapt.px(36),
+                        ),
+                        child: GridTileBar(
+                          backgroundColor: Color(0x0F242424),
+                          leading: Icon(
+                            Icons.icecream,
+                            size: Adapt.px(62),
+                            color: Colors.white,
+                          ),
+                          title: Text('在线识别',
+                              style: TextStyle(fontSize: Adapt.px(26))),
+                          subtitle: Padding(
+                              padding: EdgeInsets.only(top: Adapt.px(6)),
+                              child: Text('在线识别抖音、西瓜、快手等短视频',
+                                  style: TextStyle(
+                                      color: Color(0xFF9E9E9E),
+                                      fontSize: Adapt.px(22)))),
+                        ),
+                      )),
 
-                  AppButton(
-                      margin: EdgeInsets.only(top: Adapt.px(22)),
-                      textUnderline: true,
-                      type: 'text',
-                      title: '查看指南')
+                  Visibility(
+                      visible: widget.params['type'] != 'pic',
+                      child: AppButton(
+                          margin: EdgeInsets.only(top: Adapt.px(22)),
+                          textUnderline: true,
+                          type: 'text',
+                          title: '查看指南'))
 
                   // 列表
                 ])),
-            Container(
-              margin: EdgeInsets.only(left: Adapt.px(36), right: Adapt.px(36)),
-              child: Text(
-                  '支持wav,ogg-opus,speex,silk,m4a,aac,mp3,mp4等音视频格式、时长2小时以内、大小100MB以内的文件。',
-                  style: TextStyle(
-                      fontSize: Adapt.px(24),
-                      color: Color.fromARGB(255, 170, 170, 170))),
-            ),
-            Container(
-              alignment: Alignment.centerLeft,
-              margin: EdgeInsets.only(
-                  left: Adapt.px(36), top: Adapt.px(16), right: Adapt.px(36)),
-              child: Text('音视频时长至少大于10秒钟。',
-                  style: TextStyle(
-                      fontSize: Adapt.px(24),
-                      color: Color.fromARGB(255, 170, 170, 170))),
-            ),
+            Visibility(
+                visible: widget.params['type'] != 'pic',
+                child: Column(
+                  children: [
+                    Container(
+                      margin: EdgeInsets.only(
+                          left: Adapt.px(36), right: Adapt.px(36)),
+                      child: Text(
+                          '支持wav,ogg-opus,speex,silk,m4a,aac,mp3,mp4等音视频格式、时长2小时以内、大小100MB以内的文件。',
+                          style: TextStyle(
+                              fontSize: Adapt.px(24),
+                              color: Color.fromARGB(255, 170, 170, 170))),
+                    ),
+                    Container(
+                      alignment: Alignment.centerLeft,
+                      margin: EdgeInsets.only(
+                          left: Adapt.px(36),
+                          top: Adapt.px(16),
+                          right: Adapt.px(36)),
+                      child: Text('音视频时长至少大于10秒钟。',
+                          style: TextStyle(
+                              fontSize: Adapt.px(24),
+                              color: Color.fromARGB(255, 170, 170, 170))),
+                    )
+                  ],
+                )),
           ]),
         ));
   }
