@@ -42,55 +42,54 @@ class TeleprompterList extends StatelessWidget {
     double winHeight = window.physicalSize.height.toDouble();
     return Scaffold(
       backgroundColor: const Color.fromRGBO(47, 47, 47, 1),
+      appBar: AppToBar(
+          title: '提词器',
+          rightChild: IconButton(
+              icon: Icon(
+                Icons.settings,
+                size: Adapt.px(40),
+                color: Colors.white,
+              ),
+              onPressed: () {
+                width = 660;
+                height = 660;
+                offsetX = (winWidth - width).toDouble() / 2;
+                offsetY = 400;
+                if (Platform.isAndroid) {
+                  android_window.open(
+                    size: Size(width, height),
+                    focusable: true,
+                    position: Offset(offsetX, offsetY),
+                  );
+                } else {
+                  print('IOS弹窗');
+                }
+                showModalBottomSheet(
+                    context: context,
+                    barrierColor: Color.fromARGB(46, 209, 209, 209),
+                    backgroundColor: Colors.transparent,
+                    builder: (BuildContext context) {
+                      return Container(
+                          height: Adapt.px(630),
+                          alignment: Alignment.topCenter,
+                          decoration: BoxDecoration(
+                              color: Color.fromARGB(255, 255, 255, 255),
+                              borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(12.0),
+                                  topRight: Radius.circular(12.0))),
+                          child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                TeleprompterSetup(),
+                              ]));
+                    });
+              })),
       body: Column(children: <Widget>[
-        AppToBar(
-            title: '提词器',
-            rightChild: IconButton(
-                icon: Icon(
-                  Icons.settings,
-                  size: Adapt.px(40),
-                  color: Colors.white,
-                ),
-                onPressed: () {
-                  width = 660;
-                  height = 660;
-                  offsetX = (winWidth - width).toDouble() / 2;
-                  offsetY = 400;
-                  if (Platform.isAndroid) {
-                    android_window.open(
-                      size: Size(width, height),
-                      focusable: true,
-                      position: Offset(offsetX, offsetY),
-                    );
-                  } else {
-                    print('IOS弹窗');
-                  }
-                  showModalBottomSheet(
-                      context: context,
-                      barrierColor: Color.fromARGB(46, 209, 209, 209),
-                      backgroundColor: Colors.transparent,
-                      builder: (BuildContext context) {
-                        return Container(
-                            height: Adapt.px(630),
-                            alignment: Alignment.topCenter,
-                            decoration: BoxDecoration(
-                                color: Color.fromARGB(255, 255, 255, 255),
-                                borderRadius: BorderRadius.only(
-                                    topLeft: Radius.circular(12.0),
-                                    topRight: Radius.circular(12.0))),
-                            child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  TeleprompterSetup(),
-                                ]));
-                      });
-                })),
         // TeleprompterHead(),
         Expanded(
             child: Stack(children: [
           Container(
-              margin:
-                  EdgeInsets.only(top: Adapt.px(Platform.isAndroid ? 45 : 15)),
+              margin: EdgeInsets.only(top: Adapt.px(95)),
               child: PullDownRefreshList()),
           Positioned(
             top: 0,

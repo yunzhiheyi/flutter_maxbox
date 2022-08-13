@@ -11,6 +11,7 @@ class DialogLayout extends StatefulWidget {
   final String? title;
   final String? cancelTitle;
   final String? confirmTitle;
+  final Widget? headClid;
   final bool enableScrollInput;
   const DialogLayout(
       {Key? key,
@@ -20,6 +21,7 @@ class DialogLayout extends StatefulWidget {
       this.confirmTitle,
       this.cancelTitle,
       this.onCancel,
+      this.headClid,
       this.child})
       : super(key: key);
 
@@ -41,13 +43,17 @@ class _DialogLayoutState extends State<DialogLayout> {
   @override
   Widget build(BuildContext context) {
     return Column(children: [
-      Container(
-          padding: EdgeInsets.only(top: Adapt.px(20), bottom: Adapt.px(20)),
-          child: Text(widget.title ?? '提示',
-              style: TextStyle(
-                  fontSize: Adapt.px(28),
-                  fontWeight: FontWeight.w600,
-                  color: Color.fromARGB(255, 39, 39, 39)))),
+      Visibility(
+          visible: widget.headClid != null, child: widget.headClid ?? Text('')),
+      Visibility(
+          visible: widget.title != null,
+          child: Container(
+              padding: EdgeInsets.only(top: Adapt.px(20), bottom: Adapt.px(20)),
+              child: Text(widget.title ?? '提示',
+                  style: TextStyle(
+                      fontSize: Adapt.px(28),
+                      fontWeight: FontWeight.w600,
+                      color: Color.fromARGB(255, 39, 39, 39))))),
       Expanded(
           flex: 1,
           child: SingleChildScrollView(
@@ -64,31 +70,38 @@ class _DialogLayoutState extends State<DialogLayout> {
               bottom: Adapt.px(20)),
           margin: EdgeInsets.only(bottom: Adapt.px(8)),
           child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-            AppButton(
-              title: widget.cancelTitle ?? '取消',
-              onTap: () {
-                widget.onCancel?.call();
-              },
-              width: 180,
-              height: 60,
-              fontSize: Adapt.px(26),
-              color: Color(0xFFEEEEEE),
-              fontColor: Color.fromARGB(255, 55, 55, 55),
-              borderColor: Color(0xFFEEEEEE),
-              margin: EdgeInsets.all(Adapt.px(0)),
-            ),
-            AppButton(
+            Visibility(
+                visible: widget.cancelTitle != null,
+                child: Expanded(
+                    child: AppButton(
+                  title: widget.cancelTitle ?? '取消',
+                  onTap: () {
+                    widget.onCancel?.call();
+                  },
+                  width: 180,
+                  height: 70,
+                  fontSize: Adapt.px(26),
+                  color: Color(0xFFEEEEEE),
+                  fontColor: Color.fromARGB(255, 55, 55, 55),
+                  borderColor: Color(0xFFEEEEEE),
+                  margin:
+                      EdgeInsets.only(right: Adapt.px(15), top: 0, bottom: 0),
+                ))),
+            Expanded(
+                child: AppButton(
               title: widget.confirmTitle ?? '确认',
               onTap: () {
                 widget.onConfirm?.call();
               },
               type: 'gradient',
-              width: 180,
-              height: 60,
+              height: 70,
               fontSize: Adapt.px(26),
               margin: EdgeInsets.only(
-                  left: Adapt.px(40), top: 0, right: 0, bottom: 0),
-            ),
+                  left: Adapt.px(widget.cancelTitle != null ? 15 : 0),
+                  top: 0,
+                  right: 0,
+                  bottom: 0),
+            )),
           ]))
     ]);
   }

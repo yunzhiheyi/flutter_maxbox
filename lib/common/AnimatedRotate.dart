@@ -57,7 +57,6 @@ class _AnimatToggleRotateState extends State<AnimatToggleRotate>
   void _initTweenAnim([double? beginAngle, double? endAngle]) {
     double _beginAngle = beginAngle ?? widget.beginAngle;
     double _endAngle = endAngle ?? widget.endAngle;
-    print('_rot${_beginAngle}__${_endAngle}');
     _rotateAnim =
         Tween<double>(begin: _beginAngle / 180 * pi, end: _endAngle / 180 * pi)
             .chain(CurveTween(curve: widget.curve))
@@ -96,8 +95,6 @@ class _AnimatToggleRotateState extends State<AnimatToggleRotate>
         } else {
           _controller.forward();
         }
-        print(
-            '_rotated_${widget.isRotate}__${widget.isLoop}__${widget.beginAngle}__${widget.endAngle}__${_rotateAnim.value}');
         _rotated = !_rotated;
       }
     }

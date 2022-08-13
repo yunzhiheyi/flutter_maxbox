@@ -131,58 +131,58 @@ class HomeContentColumnState extends State<HomeContentColumn>
                             ])),
                   ]))),
         ]),
-        Stack(children: <Widget>[
-          GestureDetector(
-              onTap: () => {
-                    Routes.navigateTo(context, '/home/videotext',
-                        {'type': 'voice'}, TransitionType.cupertino)
-                  },
-              child: Container(
-                  height: Adapt.px(160),
-                  padding: EdgeInsets.fromLTRB(
-                      Adapt.px(30), Adapt.px(24), Adapt.px(24), Adapt.px(24)),
-                  margin: EdgeInsets.fromLTRB(
-                      Adapt.px(20), 0, Adapt.px(20), Adapt.px(40)),
-                  decoration: const BoxDecoration(
-                    borderRadius: BorderRadius.all(Radius.circular(6.0)),
-                    color: Color.fromARGB(255, 69, 69, 69),
-                  ),
-                  child: Row(children: [
-                    Icon(Icons.cameraswitch,
-                        size: Adapt.px(42), color: const Color(0xFFFFFFFF)),
-                    Expanded(
-                        flex: 1,
-                        child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: <Widget>[
-                              Container(
-                                  alignment: Alignment.centerLeft,
-                                  margin: EdgeInsets.fromLTRB(
-                                      Adapt.px(24), 0, 0, 0),
-                                  child: Text(
-                                    '智能标题生成',
-                                    style: TextStyle(
-                                      fontSize: Adapt.px(28),
-                                      color: const Color(0xFFFFFFFF),
-                                    ),
-                                  )),
-                              SizedBox(
-                                height: 4,
-                              ),
-                              Container(
-                                  alignment: Alignment.centerLeft,
-                                  margin: EdgeInsets.fromLTRB(
-                                      Adapt.px(24), 0, 0, 0),
-                                  child: Text(
-                                    '一键根据内容自动生成标题',
-                                    style: TextStyle(
-                                      fontSize: Adapt.px(24),
-                                      color: const Color(0xFF9E9E9E),
-                                    ),
-                                  ))
-                            ])),
-                  ]))),
-        ]),
+        // Stack(children: <Widget>[
+        //   GestureDetector(
+        //       onTap: () => {
+        //             Routes.navigateTo(context, '/home/videotext',
+        //                 {'type': 'voice'}, TransitionType.cupertino)
+        //           },
+        //       child: Container(
+        //           height: Adapt.px(160),
+        //           padding: EdgeInsets.fromLTRB(
+        //               Adapt.px(30), Adapt.px(24), Adapt.px(24), Adapt.px(24)),
+        //           margin: EdgeInsets.fromLTRB(
+        //               Adapt.px(20), 0, Adapt.px(20), Adapt.px(40)),
+        //           decoration: const BoxDecoration(
+        //             borderRadius: BorderRadius.all(Radius.circular(6.0)),
+        //             color: Color.fromARGB(255, 69, 69, 69),
+        //           ),
+        //           child: Row(children: [
+        //             Icon(Icons.cameraswitch,
+        //                 size: Adapt.px(42), color: const Color(0xFFFFFFFF)),
+        //             Expanded(
+        //                 flex: 1,
+        //                 child: Column(
+        //                     mainAxisSize: MainAxisSize.min,
+        //                     children: <Widget>[
+        //                       Container(
+        //                           alignment: Alignment.centerLeft,
+        //                           margin: EdgeInsets.fromLTRB(
+        //                               Adapt.px(24), 0, 0, 0),
+        //                           child: Text(
+        //                             '智能标题生成',
+        //                             style: TextStyle(
+        //                               fontSize: Adapt.px(28),
+        //                               color: const Color(0xFFFFFFFF),
+        //                             ),
+        //                           )),
+        //                       SizedBox(
+        //                         height: 4,
+        //                       ),
+        //                       Container(
+        //                           alignment: Alignment.centerLeft,
+        //                           margin: EdgeInsets.fromLTRB(
+        //                               Adapt.px(24), 0, 0, 0),
+        //                           child: Text(
+        //                             '一键根据内容自动生成标题',
+        //                             style: TextStyle(
+        //                               fontSize: Adapt.px(24),
+        //                               color: const Color(0xFF9E9E9E),
+        //                             ),
+        //                           ))
+        //                     ])),
+        //           ]))),
+        // ]),
         Stack(children: <Widget>[
           GestureDetector(
               onTap: () => {

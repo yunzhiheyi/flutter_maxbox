@@ -1,4 +1,4 @@
-// ignore_for_file: unused_import,unnecessary_import, depend_on_referenced_packages, unnecessary_new, unnecessary_overrides, prefer_const_constructors
+// ignore_for_file: unused_import,unnecessary_import, depend_on_referenced_packages, unnecessary_new, unnecessary_overrides, prefer_const_constructors, no_leading_underscores_for_local_identifiers, unnecessary_null_comparison, must_be_immutable
 import 'package:flutter/material.dart';
 // import 'package:flutter/gestures.dart';
 import 'package:bloc/bloc.dart';
@@ -74,7 +74,6 @@ void configLoading() {
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
@@ -91,8 +90,8 @@ class MyApp extends StatelessWidget {
         ],
         child: MaterialApp(
           navigatorObservers: [NavigatorRouterObserver()],
-          initialRoute: '/splash',
-          // initialRoute: '/home',
+          // initialRoute: '/test2',
+          initialRoute: '/home',
           // routes: AppRoutes.getRoutes(),
           localizationsDelegates: const [
             // 这行是关键

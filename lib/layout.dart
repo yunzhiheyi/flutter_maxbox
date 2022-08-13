@@ -13,6 +13,7 @@ import 'package:max_box/common/HomeSheetTools.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:universal_platform/universal_platform.dart';
 import 'bloc/global/bloc/global_bloc.dart';
+import 'common/DoubleTapBackExitApp.dart';
 import 'common/HomeButtonAmin.dart';
 
 class Layout extends StatelessWidget {
@@ -66,82 +67,83 @@ class _LayoutDataState extends State<LayoutData> {
           : const Color(0XFFcccccc);
     }
 
-    return Scaffold(
-        backgroundColor: const Color.fromRGBO(47, 47, 47, 1),
-        body: _children[_currentIndex],
-        bottomNavigationBar: Container(
-            padding: EdgeInsets.fromLTRB(
-                0,
-                Adapt.px(6),
-                0,
-                UniversalPlatform.isAndroid
-                    ? Adapt.px(8)
-                    : Adapt.px(Adapt.padBotH() + 6)),
-            // decoration: const BoxDecoration(
-            //   boxShadow: [
-            //     BoxShadow(
-            //         color: Color.fromRGBO(0, 0, 0, 0.1),
-            //         offset: Offset(5.0, 5.0),
-            //         blurRadius: 15.0,
-            //         spreadRadius: 2.0)
-            //   ],
-            // ),
-            child: Row(
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: <Widget>[
-                  GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          _currentIndex = 0;
-                        });
-                      },
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          Icon(
-                            Icons.home,
-                            size: Adapt.px(62),
-                            color: _currentIndex == 0
-                                ? Colors.white
-                                : Color.fromARGB(255, 148, 148, 148),
-                          )
-                          // Image.asset(
-                          //   "assets/images/${_currentIndex == 0 ? 'icon-home-active' : 'icon-home'}.png",
-                          //   width: Adapt.px(54),
-                          //   height: Adapt.px(54),
-                          // ),
-                          // Text("首页",
-                          //     style: TextStyle(
-                          //         color: getColor(0), fontSize: Adapt.px(24)))
-                        ],
-                      )),
-                  HomeButtonAmin(),
-                  GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          _currentIndex = 1;
-                        });
-                      },
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          Icon(
-                            Icons.person,
-                            size: Adapt.px(62),
-                            color: _currentIndex == 1
-                                ? Colors.white
-                                : Color.fromARGB(255, 148, 148, 148),
-                          )
-                          // Image.asset(
-                          //     "assets/images/icon-user${_currentIndex == 1 ? '-active' : ''}.png",
-                          //     width: Adapt.px(52),
-                          //     height: Adapt.px(52)),
-                          // Text("我的",
-                          //     style: TextStyle(
-                          //         fontSize: Adapt.px(24), color: getColor(1)))
-                        ],
-                      ))
-                ])));
+    return DoubleTapBackExitApp(
+        child: Scaffold(
+            backgroundColor: const Color.fromRGBO(47, 47, 47, 1),
+            body: _children[_currentIndex],
+            bottomNavigationBar: Container(
+                padding: EdgeInsets.fromLTRB(
+                    0,
+                    Adapt.px(6),
+                    0,
+                    UniversalPlatform.isAndroid
+                        ? Adapt.px(8)
+                        : Adapt.px(Adapt.padBotH() + 6)),
+                // decoration: const BoxDecoration(
+                //   boxShadow: [
+                //     BoxShadow(
+                //         color: Color.fromRGBO(0, 0, 0, 0.1),
+                //         offset: Offset(5.0, 5.0),
+                //         blurRadius: 15.0,
+                //         spreadRadius: 2.0)
+                //   ],
+                // ),
+                child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: <Widget>[
+                      GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              _currentIndex = 0;
+                            });
+                          },
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: <Widget>[
+                              Icon(
+                                Icons.home,
+                                size: Adapt.px(62),
+                                color: _currentIndex == 0
+                                    ? Colors.white
+                                    : Color.fromARGB(255, 148, 148, 148),
+                              )
+                              // Image.asset(
+                              //   "assets/images/${_currentIndex == 0 ? 'icon-home-active' : 'icon-home'}.png",
+                              //   width: Adapt.px(54),
+                              //   height: Adapt.px(54),
+                              // ),
+                              // Text("首页",
+                              //     style: TextStyle(
+                              //         color: getColor(0), fontSize: Adapt.px(24)))
+                            ],
+                          )),
+                      HomeButtonAmin(),
+                      GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              _currentIndex = 1;
+                            });
+                          },
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: <Widget>[
+                              Icon(
+                                Icons.person,
+                                size: Adapt.px(62),
+                                color: _currentIndex == 1
+                                    ? Colors.white
+                                    : Color.fromARGB(255, 148, 148, 148),
+                              )
+                              // Image.asset(
+                              //     "assets/images/icon-user${_currentIndex == 1 ? '-active' : ''}.png",
+                              //     width: Adapt.px(52),
+                              //     height: Adapt.px(52)),
+                              // Text("我的",
+                              //     style: TextStyle(
+                              //         fontSize: Adapt.px(24), color: getColor(1)))
+                            ],
+                          ))
+                    ]))));
   }
 }

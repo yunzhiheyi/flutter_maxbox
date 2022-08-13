@@ -1,6 +1,7 @@
-// ignore_for_file: use_key_in_widget_constructors, unnecessary_new, avoid_unnecessary_containers, unnecessary_const, must_be_immutable, prefer_const_constructors_in_immutables, prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_element, override_on_non_overriding_member, avoid_print, unused_local_variable, non_constant_identifier_names, must_call_super, sized_box_for_whitespace, unused_field, avoid_types_as_parameter_names, unused_import, depend_on_referenced_packages
+// ignore_for_file: use_key_in_widget_constructors, unnecessary_new, avoid_unnecessary_containers, unnecessary_const, must_be_immutable, prefer_const_constructors_in_immutables, prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_element, override_on_non_overriding_member, avoid_print, unused_local_variable, non_constant_identifier_names, must_call_super, sized_box_for_whitespace, unused_field, avoid_types_as_parameter_names, unused_import, depend_on_referenced_packages, file_names
 
 import 'package:contained_tab_bar_view/contained_tab_bar_view.dart';
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:max_box/common/AppToBar.dart';
 import 'package:max_box/utils/adApt.dart';
@@ -11,6 +12,7 @@ import 'package:video_player/video_player.dart';
 import '../common/AppButton.dart';
 import '../common/ItemVoice.dart';
 import '../common/conversionRecord.dart';
+import '../router/Routes.dart';
 import '../ui/collapse.dart';
 
 class VideoTotext extends StatefulWidget {
@@ -63,7 +65,7 @@ class VideoTotextState extends State<VideoTotext>
                   });
             },
             child: Icon(
-              Icons.color_lens_sharp,
+              Icons.cloud_outlined,
               size: Adapt.px(60),
             )),
         body: SingleChildScrollView(
@@ -85,7 +87,8 @@ class VideoTotextState extends State<VideoTotext>
                           title: '购买时长',
                           type: 'gradient',
                           onTap: () {
-                            print('IOS弹窗');
+                            Routes.navigateTo(context, '/user/buy/duration', {},
+                                TransitionType.cupertino);
                           },
                           width: 138,
                           height: 52,

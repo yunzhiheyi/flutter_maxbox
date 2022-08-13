@@ -1,8 +1,5 @@
 // ignore_for_file: library_private_types_in_public_api, file_names, prefer_const_constructors, unnecessary_const, unused_local_variable, no_leading_underscores_for_local_identifiers
 
-// import 'package:assets_audio_player/assets_audio_player.dart';
-// import 'package:audioplayers/audioplayers.dart';
-import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import '../utils/AudioPlayUtil.dart';
 import '../utils/adApt.dart';
@@ -99,7 +96,6 @@ class _ItemVoiceState extends State<ItemVoice> {
                 } else {
                   await AudioPlayUtil().pause();
                 }
-
                 setState(() {
                   isPlay = !isPlay;
                 });

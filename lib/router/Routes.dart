@@ -2,14 +2,21 @@
 
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import 'package:max_box/views/buyDuration.dart';
+import 'package:max_box/views/orderList.dart';
+import 'package:max_box/views/setup.dart';
 import 'package:max_box/views/textToVoice.dart';
 import 'package:max_box/views/teleprompter.dart';
 import 'package:max_box/views/teleprompterText.dart';
 import 'package:max_box/views/test.dart';
 import 'package:max_box/views/videoTotext.dart';
+import '../views/buyMembers.dart';
 import '../views/conversionDetails.dart';
 import '../views/login.dart';
+import '../views/pictureDetails.dart';
 import '../views/splash.dart';
+import '../views/userLogout.dart';
+import '../views/voiceDetails.dart';
 import '../views/watermark.dart';
 import '../views/textToVoice.dart';
 import '../views/videoTotext.dart';
@@ -19,6 +26,7 @@ import '../views/test2.dart';
 import '../layout.dart';
 import '../views/loginCode.dart';
 import '../views/teleprompter.dart';
+import '../views/setup.dart';
 
 class Routes {
   static final router = FluroRouter();
@@ -81,10 +89,49 @@ class Routes {
       return VideoTotext(params: paramsData(params));
     }));
     //转换记录
-    router.define('/home/videotext/conversiondetails', handler: Handler(
+    router.define('/home/text/details', handler: Handler(
         handlerFunc: (BuildContext? context, Map<String, dynamic> params) {
       return ConversionDetails(params: paramsData(params));
     }));
+    //会员购买
+    router.define('/user/bug/members', handler: Handler(
+        handlerFunc: (BuildContext? context, Map<String, dynamic> params) {
+      return BuyMembers(params: paramsData(params));
+    }));
+    // 账号注销
+    router.define('/user/logout/account', handler: Handler(
+        handlerFunc: (BuildContext? context, Map<String, dynamic> params) {
+      return UserLogout(params: paramsData(params));
+    }));
+    //图片转换记录
+    router.define('/home/picture/details', handler: Handler(
+        handlerFunc: (BuildContext? context, Map<String, dynamic> params) {
+      return PictureDetails(params: paramsData(params));
+    }));
+    //音频提取记录
+    router.define('/home/voice/details', handler: Handler(
+        handlerFunc: (BuildContext? context, Map<String, dynamic> params) {
+      return VoiceDetails(params: paramsData(params));
+    }));
+
+    //系统设置
+    router.define('/user/setup', handler: Handler(
+        handlerFunc: (BuildContext? context, Map<String, dynamic> params) {
+      return Setup(params: paramsData(params));
+    }));
+
+    //我的订单
+    router.define('/user/order', handler: Handler(
+        handlerFunc: (BuildContext? context, Map<String, dynamic> params) {
+      return OrderList(params: paramsData(params));
+    }));
+
+    //购买时长
+    router.define('/user/buy/duration', handler: Handler(
+        handlerFunc: (BuildContext? context, Map<String, dynamic> params) {
+      return BuyDuration(params: paramsData(params));
+    }));
+
     //配置webview
     router.define('/test', handler: Handler(
         handlerFunc: (BuildContext? context, Map<String, dynamic> params) {
@@ -106,7 +153,7 @@ class Routes {
     }));
   }
 
-  static navigateTo(BuildContext context, String path,
+  static navigateTo(BuildContext context, dynamic path,
       [Map<String, dynamic>? params, transition]) {
     String query = "";
     int index = 0;

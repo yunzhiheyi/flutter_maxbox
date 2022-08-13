@@ -1,6 +1,7 @@
-// ignore_for_file: use_key_in_widget_constructors, unnecessary_new, avoid_unnecessary_containers, unnecessary_const, must_be_immutable, prefer_const_constructors_in_immutables, prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_element, override_on_non_overriding_member, avoid_print, unused_local_variable, non_constant_identifier_names, must_call_super, sized_box_for_whitespace, unused_field, avoid_types_as_parameter_names, unused_import
+// ignore_for_file: use_key_in_widget_constructors, unnecessary_new, avoid_unnecessary_containers, unnecessary_const, must_be_immutable, prefer_const_constructors_in_immutables, prefer_const_constructors, prefer_const_literals_to_create_immutables, unused_element, override_on_non_overriding_member, avoid_print, unused_local_variable, non_constant_identifier_names, must_call_super, sized_box_for_whitespace, unused_field, avoid_types_as_parameter_names, unused_import, file_names
 
 import 'package:contained_tab_bar_view/contained_tab_bar_view.dart';
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:max_box/common/AppToBar.dart';
 import 'package:max_box/utils/adApt.dart';
@@ -9,6 +10,7 @@ import 'package:video_player/video_player.dart';
 
 import '../common/AppButton.dart';
 import '../common/ItemVoice.dart';
+import '../router/Routes.dart';
 import '../ui/collapse.dart';
 import 'ItemRecord.dart';
 
@@ -86,20 +88,32 @@ class ConversionRecordState extends State<ConversionRecord>
                     child: Column(
                       children: [
                         ItemRecord(
-                          state: 1,
-                          title: '测试音频.mp4',
-                          subtitle: '2022-05-22 15:22:22',
-                        ),
+                            state: 1,
+                            title: '视频转文字.mp4',
+                            subtitle: '2022-05-22 15:22:22',
+                            onChange: (dynamic id) {
+                              Routes.navigateTo(context, '/home/text/details',
+                                  {'id': id}, TransitionType.cupertino);
+                            }),
                         ItemRecord(
-                          state: 2,
-                          title: '测试音频2.mp4',
-                          subtitle: '2022-05-22 15:22:22',
-                        ),
+                            state: 2,
+                            title: '视频转音频.mp4',
+                            subtitle: '2022-05-22 15:22:22',
+                            onChange: (dynamic id) {
+                              Routes.navigateTo(context, '/home/voice/details',
+                                  {'id': id}, TransitionType.cupertino);
+                            }),
                         ItemRecord(
-                          state: 1,
-                          title: '测试音频.mp4',
-                          subtitle: '2022-05-22 15:22:22',
-                        ),
+                            state: 1,
+                            title: '图片转文字.png',
+                            subtitle: '2022-05-22 15:22:22',
+                            onChange: (dynamic id) {
+                              Routes.navigateTo(
+                                  context,
+                                  '/home/picture/details',
+                                  {'id': id},
+                                  TransitionType.cupertino);
+                            }),
                         ItemRecord(
                           state: 2,
                           title: '测试音频1112.mp4',

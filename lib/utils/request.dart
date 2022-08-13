@@ -15,7 +15,7 @@ class Request {
   // 配置 Dio 实例
   static final BaseOptions _options = BaseOptions(
     ///Api地址
-    baseUrl: 'http://192.168.101.6:3001',
+    baseUrl: 'http://192.168.101.5:3001',
 
     ///打开超时时间
     connectTimeout: 50000,

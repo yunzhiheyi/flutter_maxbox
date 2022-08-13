@@ -2,6 +2,7 @@
 
 import 'package:equatable/equatable.dart';
 
+// 用户信息数据模型
 class UserViewModel extends Equatable {
   final String id;
   final int is_vip;
@@ -72,4 +73,28 @@ class UserViewModel extends Equatable {
         updateAt,
         last_login_date,
       ];
+}
+
+// 用户信息数据模型
+class UserUiModel extends Equatable {
+  final String name;
+  final int id;
+  final String? icon;
+  final String? lastName;
+  final bool isH5;
+  final bool isOnTap;
+  final String? path;
+  final Map<String, dynamic>? params;
+  const UserUiModel(
+      {required this.id,
+      required this.name,
+      required this.path,
+      this.icon,
+      this.lastName,
+      this.isH5 = false,
+      this.params,
+      this.isOnTap = false});
+  @override
+  List<dynamic> get props =>
+      [name, icon, lastName, isOnTap, isH5, path, params];
 }

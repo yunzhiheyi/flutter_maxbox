@@ -1,4 +1,4 @@
-// ignore_for_file: use_key_in_widget_constructors, unnecessary_new, avoid_unnecessary_containers, prefer_const_constructors_in_immutables, must_call_super, prefer_const_literals_to_create_immutables, prefer_const_constructors, camel_case_types, non_constant_identifier_names, avoid_print, unnecessary_brace_in_string_interps, unused_field, unused_local_variable, must_be_immutable
+// ignore_for_file: use_key_in_widget_constructors, unnecessary_new, avoid_unnecessary_containers, prefer_const_constructors_in_immutables, must_call_super, prefer_const_literals_to_create_immutables, prefer_const_constructors, camel_case_types, non_constant_identifier_names, avoid_print, unnecessary_brace_in_string_interps, unused_field, unused_local_variable, must_be_immutable, file_names
 
 import 'package:flutter/material.dart';
 
@@ -36,81 +36,77 @@ class TeleprompterTextState extends State<TeleprompterText>
     final double bottomPadding = MediaQuery.of(context).padding.bottom;
     return Scaffold(
         backgroundColor: const Color.fromRGBO(47, 47, 47, 1),
+        appBar: AppToBar(
+            title: widget.params['type'] == 'add' ? '添加文本' : '编辑文本',
+            rightChild: AppButton(
+                title: '保存',
+                type: 'gradient',
+                onTap: () {
+                  showModalBottomSheet(
+                      context: context,
+                      barrierColor: Color(0x2DD1D1D1),
+                      backgroundColor: Colors.transparent,
+                      builder: (BuildContext context) {
+                        return Container(
+                            height: Adapt.px(298) + Adapt.padBotH(),
+                            alignment: Alignment.topCenter,
+                            decoration: BoxDecoration(
+                                color: Color.fromARGB(255, 255, 255, 255),
+                                borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(12.0),
+                                    topRight: Radius.circular(12.0))),
+                            child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Container(
+                                      height: Adapt.px(80),
+                                      padding:
+                                          EdgeInsets.only(top: Adapt.px(22)),
+                                      alignment: Alignment.center,
+                                      child: Text('保存去提词',
+                                          style: TextStyle(
+                                              fontSize: Adapt.px(28)))),
+                                  Divider(
+                                    color: Color.fromARGB(255, 216, 216, 216),
+                                  ),
+                                  Container(
+                                      height: Adapt.px(70),
+                                      alignment: Alignment.center,
+                                      child: Text('保存后返回',
+                                          style: TextStyle(
+                                              fontSize: Adapt.px(28)))),
+                                  Divider(
+                                    color: Color.fromARGB(255, 216, 216, 216),
+                                  ),
+                                  GestureDetector(
+                                      onTap: () {
+                                        FocusScope.of(context)
+                                            .requestFocus(FocusNode());
+                                        Navigator.pop(context);
+                                      },
+                                      child: Container(
+                                          height: Adapt.px(70),
+                                          alignment: Alignment.center,
+                                          child: Text('取消',
+                                              style: TextStyle(
+                                                  color: Color.fromRGBO(
+                                                      135, 135, 135, 1),
+                                                  fontSize: Adapt.px(28))))),
+                                ]));
+                      });
+                },
+                width: 90,
+                height: 40,
+                fontSize: Adapt.px(24),
+                padding: EdgeInsets.only(bottom: Adapt.px(2)),
+                margin: EdgeInsets.all(0),
+                radius: 40)),
         body: GestureDetector(
           onTap: () {
             // 触摸收起键盘
             FocusScope.of(context).requestFocus(FocusNode());
           },
           child: Column(children: <Widget>[
-            AppToBar(
-                title: widget.params['type'] == 'add' ? '添加文本' : '编辑文本',
-                rightChild: AppButton(
-                    title: '保存',
-                    type: 'gradient',
-                    onTap: () {
-                      showModalBottomSheet(
-                          context: context,
-                          barrierColor: Color(0x2DD1D1D1),
-                          backgroundColor: Colors.transparent,
-                          builder: (BuildContext context) {
-                            return Container(
-                                height: Adapt.px(298) + Adapt.padBotH(),
-                                alignment: Alignment.topCenter,
-                                decoration: BoxDecoration(
-                                    color: Color.fromARGB(255, 255, 255, 255),
-                                    borderRadius: BorderRadius.only(
-                                        topLeft: Radius.circular(12.0),
-                                        topRight: Radius.circular(12.0))),
-                                child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.center,
-                                    children: [
-                                      Container(
-                                          height: Adapt.px(80),
-                                          padding: EdgeInsets.only(
-                                              top: Adapt.px(22)),
-                                          alignment: Alignment.center,
-                                          child: Text('保存去提词',
-                                              style: TextStyle(
-                                                  fontSize: Adapt.px(28)))),
-                                      Divider(
-                                        color:
-                                            Color.fromARGB(255, 216, 216, 216),
-                                      ),
-                                      Container(
-                                          height: Adapt.px(70),
-                                          alignment: Alignment.center,
-                                          child: Text('保存后返回',
-                                              style: TextStyle(
-                                                  fontSize: Adapt.px(28)))),
-                                      Divider(
-                                        color:
-                                            Color.fromARGB(255, 216, 216, 216),
-                                      ),
-                                      GestureDetector(
-                                          onTap: () {
-                                            FocusScope.of(context)
-                                                .requestFocus(FocusNode());
-                                            Navigator.pop(context);
-                                          },
-                                          child: Container(
-                                              height: Adapt.px(70),
-                                              alignment: Alignment.center,
-                                              child: Text('取消',
-                                                  style: TextStyle(
-                                                      color: Color.fromRGBO(
-                                                          135, 135, 135, 1),
-                                                      fontSize:
-                                                          Adapt.px(28))))),
-                                    ]));
-                          });
-                    },
-                    width: 90,
-                    height: 40,
-                    fontSize: Adapt.px(24),
-                    padding: EdgeInsets.only(bottom: Adapt.px(2)),
-                    margin: EdgeInsets.all(0),
-                    radius: 40)),
             Container(
                 height: Adapt.px(80),
                 margin: EdgeInsets.fromLTRB(

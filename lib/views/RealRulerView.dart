@@ -1,7 +1,5 @@
 // ignore_for_file: file_names, must_be_immutable, avoid_unnecessary_containers, unnecessary_null_comparison
 
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 class RulerWidget extends StatefulWidget {

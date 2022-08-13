@@ -75,20 +75,17 @@ class _ScrollLoopAutoScrollState extends State<ScrollLoopAutoScroll>
       if (widget.enableScrollInput) {
         if (animationController.isAnimating) {
           animationController.stop();
-          print('1----2');
         } else {
           await Future.delayed(widget.delayAfterScrollInput);
           if (widget.play) {
             animationHandler();
           }
-          print('1----3');
         }
       }
     });
 
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) async {
       await Future.delayed(widget.delay);
-      print('1----4');
     });
     animationOffset();
     super.initState();
@@ -114,7 +111,6 @@ class _ScrollLoopAutoScrollState extends State<ScrollLoopAutoScroll>
         animationController.forward().then((_) async {
           animationController.reset();
           animationController.stop();
-          print('1----6');
           widget.onEnd?.call(true);
         });
       }
@@ -127,15 +123,12 @@ class _ScrollLoopAutoScrollState extends State<ScrollLoopAutoScroll>
     if (widget.play != oldWidget.play) {
       if (widget.play) {
         animationHandler();
-        print('1----8');
       } else {
-        print('1----9');
         animationController.stop();
       }
     }
     if (widget.reset != oldWidget.reset) {
       if (widget.reset) {
-        print('1----10');
         animationController.reset();
         animationController.stop();
         // 需要延时处理

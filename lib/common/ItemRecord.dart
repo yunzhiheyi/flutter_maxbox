@@ -2,17 +2,15 @@
 
 // import 'package:assets_audio_player/assets_audio_player.dart';
 // import 'package:audioplayers/audioplayers.dart';
-import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 // import '../model/conversionRecord.dart';
-import '../router/Routes.dart';
 import '../utils/adApt.dart';
 import 'AppButton.dart';
 
 class ItemRecord extends StatefulWidget {
   final Widget? child;
   final String title;
-  final ValueChanged<int>? onChange;
+  final ValueChanged<dynamic>? onChange;
   final int? state;
   // final int? data;
   final String subtitle;
@@ -45,9 +43,7 @@ class _ItemRecordState extends State<ItemRecord> {
     return Stack(children: [
       GestureDetector(
           onTap: () async {
-            widget.onChange?.call(1);
-            Routes.navigateTo(context, '/home/videotext/conversiondetails',
-                {'id': '1'}, TransitionType.cupertino);
+            widget.onChange?.call('1');
           },
           child: Container(
               alignment: Alignment.centerLeft,

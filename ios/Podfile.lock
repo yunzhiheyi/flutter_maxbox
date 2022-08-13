@@ -2,6 +2,8 @@ PODS:
   - audioplayers (0.0.1):
     - Flutter
   - Flutter (1.0.0)
+  - flutter_app_update (0.0.1):
+    - Flutter
   - image_picker_ios (0.0.1):
     - Flutter
   - path_provider_ios (0.0.1):
@@ -18,6 +20,7 @@ PODS:
 DEPENDENCIES:
   - audioplayers (from `.symlinks/plugins/audioplayers/ios`)
   - Flutter (from `Flutter`)
+  - flutter_app_update (from `.symlinks/plugins/flutter_app_update/ios`)
   - image_picker_ios (from `.symlinks/plugins/image_picker_ios/ios`)
   - path_provider_ios (from `.symlinks/plugins/path_provider_ios/ios`)
   - permission_handler_apple (from `.symlinks/plugins/permission_handler_apple/ios`)
@@ -30,6 +33,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/audioplayers/ios"
   Flutter:
     :path: Flutter
+  flutter_app_update:
+    :path: ".symlinks/plugins/flutter_app_update/ios"
   image_picker_ios:
     :path: ".symlinks/plugins/image_picker_ios/ios"
   path_provider_ios:
@@ -46,6 +51,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   audioplayers: 455322b54050b30ea4b1af7cd9e9d105f74efa8c
   Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
+  flutter_app_update: 65f61da626cb111d1b24674abc4b01728d7723bc
   image_picker_ios: b786a5dcf033a8336a657191401bfdf12017dabb
   path_provider_ios: 14f3d2fd28c4fdb42f44e0f751d12861c43cee02
   permission_handler_apple: 44366e37eaf29454a1e7b1b7d736c2cceaeb17ce

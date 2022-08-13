@@ -17,6 +17,7 @@ class AppButton extends StatefulWidget {
   final Color? fontColor;
   final Color? borderColor;
   final bool textUnderline;
+  final Axis direction;
   EdgeInsetsGeometry? padding;
   EdgeInsetsGeometry? margin;
   AppButton(
@@ -32,6 +33,7 @@ class AppButton extends StatefulWidget {
       this.margin,
       this.radius,
       this.child,
+      this.direction = Axis.horizontal,
       this.textUnderline = false,
       this.borderColor,
       this.type = 'default',
@@ -95,7 +97,7 @@ class _AppButtonState extends State<AppButton> {
                       ),
             child: Wrap(
               alignment: WrapAlignment.center,
-              direction: Axis.vertical,
+              direction: widget.direction,
               children: [
                 Padding(
                     padding: EdgeInsets.only(

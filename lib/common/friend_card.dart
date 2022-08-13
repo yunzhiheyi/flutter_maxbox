@@ -84,7 +84,7 @@ class FriendCardState extends State<FriendCard> {
                           backgroundColor: Colors.transparent,
                           builder: (BuildContext context) {
                             return Container(
-                                height: Adapt.px(386) + Adapt.padBotH(),
+                                height: Adapt.px(405) + Adapt.padBotH(),
                                 alignment: Alignment.topCenter,
                                 decoration: BoxDecoration(
                                     color: Color.fromARGB(255, 255, 255, 255),
@@ -133,19 +133,20 @@ class FriendCardState extends State<FriendCard> {
                                         onTap: () {
                                           // AnimatedDialog().show(context);
                                           AnimatedDialog(
-                                                  height: Adapt.px(530),
-                                                  title: '删除提示',
-                                                  enableScrollInput: false,
-                                                  child: Container(
-                                                      height: Adapt.px(100),
-                                                      padding: EdgeInsets.only(
-                                                          left: Adapt.px(40),
-                                                          right: Adapt.px(40)),
-                                                      alignment:
-                                                          Alignment.center,
-                                                      child:
-                                                          Text('确定要删除此条文本？')))
-                                              .show(context);
+                                              height: Adapt.px(560),
+                                              title: '删除提示',
+                                              enableScrollInput: false,
+                                              child: Container(
+                                                  height: Adapt.px(80),
+                                                  padding: EdgeInsets.only(
+                                                      left: Adapt.px(40),
+                                                      right: Adapt.px(40)),
+                                                  alignment: Alignment.center,
+                                                  child: Text(
+                                                    '确定要删除此条文本？',
+                                                    style: TextStyle(
+                                                        fontSize: Adapt.px(26)),
+                                                  ))).show(context);
                                         },
                                         fontColor:
                                             Color.fromARGB(255, 219, 32, 32),

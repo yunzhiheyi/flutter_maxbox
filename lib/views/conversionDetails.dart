@@ -1,4 +1,4 @@
-// ignore_for_file: library_private_types_in_public_api, prefer_const_constructors, use_key_in_widget_constructors, unused_import, avoid_unnecessary_containers, must_call_super, prefer_const_literals_to_create_immutables, avoid_print, unused_element, use_build_context_synchronously, unused_local_variable, must_be_immutable
+// ignore_for_file: library_private_types_in_public_api, prefer_const_constructors, use_key_in_widget_constructors, unused_import, avoid_unnecessary_containers, must_call_super, prefer_const_literals_to_create_immutables, avoid_print, unused_element, use_build_context_synchronously, unused_local_variable, must_be_immutable, file_names
 
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
@@ -114,7 +114,7 @@ class _ConversionDetailsState extends State<ConversionDetails> {
                                 ),
                                 ItemRecordDetails(
                                   title:
-                                      '今天啊我用80万帐号来给大家做一条完整的视频分享，这条视频有点长，我不带货也是做其他的，我不带货也是做其他的',
+                                      '今天啊我用80万账号来给大家做一条完整的视频分享，这条视频有点长，我不带货也是做其他的，我不带货也是做其他的',
                                 ),
                                 ItemRecordDetails(
                                   title:
