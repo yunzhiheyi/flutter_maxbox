@@ -3,11 +3,11 @@ import 'dart:async';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:max_box/bloc/user/user_bloc.dart';
-import 'package:max_box/router/Routes.dart';
-import 'package:max_box/utils/adApt.dart';
-import 'package:max_box/common/LoginPrivacy.dart';
-import 'package:max_box/utils/api.dart';
+import 'package:fengchao/bloc/user/user_bloc.dart';
+import 'package:fengchao/router/Routes.dart';
+import 'package:fengchao/utils/adApt.dart';
+import 'package:fengchao/common/LoginPrivacy.dart';
+import 'package:fengchao/utils/api.dart';
 
 import '../common/AppButton.dart';
 
@@ -32,8 +32,6 @@ class _LoginCodeState extends State<LoginCode> {
     setState(() {
       if (isButtonEnable) {
         //当按钮可点击时
-        isButtonEnable = false; //按钮状态标记
-        _initTimer();
         BlocProvider.of<UserBloc>(context).add(getCode(mobile: _phone));
         return null; //返回null按钮禁止点击
       } else {
@@ -77,8 +75,14 @@ class _LoginCodeState extends State<LoginCode> {
   }
 
   void _listenerLoginState(BuildContext context, UserState state) {
+    // 登录成功
     if (state.status == LoginStatus.success) {
       Routes.navigateTo(context, '/home', {});
+    }
+    // 验证码发送成功
+    if (state.codeVerified == VerifiedStatus.success) {
+      _initTimer();
+      isButtonEnable = true; //按钮状态标记
     }
   }
 

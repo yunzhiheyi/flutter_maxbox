@@ -2,7 +2,7 @@
 
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
-import 'package:max_box/utils/adApt.dart';
+import 'package:fengchao/utils/adApt.dart';
 
 import '../router/Routes.dart';
 

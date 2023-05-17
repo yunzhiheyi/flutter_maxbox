@@ -7,8 +7,8 @@ import 'dart:async';
 
 import 'package:flutter_animated_dialog/flutter_animated_dialog.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:max_box/common/AppButton.dart';
-import 'package:max_box/utils/adApt.dart';
+import 'package:fengchao/common/AppButton.dart';
+import 'package:fengchao/utils/adApt.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import '../common/AnimatedDialog.dart';
@@ -43,7 +43,7 @@ class _SplashState extends State<Splash> {
       openAppSettings();
       // } else if (status == PermissionStatus.granted) {
     } else {
-      Routes.navigateTo(context, '/home', {}, TransitionType.fadeIn);
+      Routes.navigateTo(context, '/login', {}, TransitionType.fadeIn);
     }
   }
 
@@ -54,7 +54,7 @@ class _SplashState extends State<Splash> {
     print('检测权限$status');
     if (status.isGranted) {
       //权限通过
-      Routes.navigateTo(context, '/home', {}, TransitionType.fadeIn);
+      Routes.navigateTo(context, '/login', {}, TransitionType.fadeIn);
     } else if (status.isDenied) {
       //权限拒绝， 需要区分IOS和Android，二者不一样
       requestPermission(permission);

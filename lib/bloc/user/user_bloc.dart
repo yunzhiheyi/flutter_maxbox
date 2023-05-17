@@ -4,12 +4,12 @@ import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:max_box/model/models.dart';
-import 'package:max_box/utils/LocalStorage.dart';
-import 'package:max_box/utils/api.dart';
-import 'package:max_box/utils/tools.dart';
+import 'package:fengchao/model/models.dart';
+import 'package:fengchao/utils/LocalStorage.dart';
+import 'package:fengchao/utils/api.dart';
+import 'package:fengchao/utils/tools.dart';
 import 'package:stream_transform/stream_transform.dart';
-// import 'package:max_box/views/login.dart';
+// import 'package:fengchao/views/login.dart';
 
 part 'user_event.dart';
 part 'user_state.dart';
@@ -58,9 +58,14 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       if (!tools.isChinaPhoneLegal(event.mobile)) {
         return EasyLoading.showToast("手机输入不正确");
       }
-      await _fetchGetCode(event.mobile);
+      Map<String, dynamic> resData = await _fetchGetCode(event.mobile);
+      if (resData['code'] == 200) {
+        emit(state.copyWith(codeVerified: VerifiedStatus.success));
+      } else {
+        emit(state.copyWith(codeVerified: VerifiedStatus.failure));
+      }
     } catch (_) {
-      debugPrint('ERROR');
+      emit(state.copyWith(codeVerified: VerifiedStatus.failure));
     }
   }
 
@@ -91,9 +96,10 @@ class UserBloc extends Bloc<UserEvent, UserState> {
             isCheck: false,
             access_token: resData['data']['access_token'],
             refresh_token: resData['data']['refresh_token']));
+      } else {
+        emit(state.copyWith(status: LoginStatus.failure));
       }
     } catch (_) {
-      debugPrint('LoginStatus ERROR----$_');
       emit(state.copyWith(status: LoginStatus.failure));
     }
   }

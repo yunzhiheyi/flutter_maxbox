@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:string_scanner/string_scanner.dart';
-import 'package:max_box/utils/adApt.dart';
+import 'package:fengchao/utils/adApt.dart';
 
 class StringParser {
   // 导入的文本

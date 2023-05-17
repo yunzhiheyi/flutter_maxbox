@@ -4,7 +4,6 @@ import 'package:audioplayers/audioplayers.dart';
 
 class AudioPlayUtil {
   late AudioPlayer audioPlayer;
-
   // static _instance，_instance会在编译期被初始化，保证了只被创建一次
   static final AudioPlayUtil _instance = AudioPlayUtil._internal();
 
@@ -15,39 +14,33 @@ class AudioPlayUtil {
 
   // 通过私有方法_internal()隐藏了构造方法，防止被误创建
   AudioPlayUtil._internal() {
-    audioPlayer = AudioPlayer();
+     audioPlayer = AudioPlayer();
   }
 
   /// 播放
   Future play(String videoPath) async {
-    int result = await audioPlayer.setUrl(videoPath);
+    await audioPlayer.setSourceUrl(videoPath);
     await audioPlayer.resume();
     callback();
-    return result;
   }
-
   /// 继续播放
   Future continuePlay() async {
-    int result = await audioPlayer.resume();
-    return result;
+     await audioPlayer.resume();
   }
 
   /// 继续播放
   Future reset() async {
-    int result = await audioPlayer.stop();
-    return result;
+    await audioPlayer.stop();
   }
 
   /// 暂停
   Future pause() async {
-    int result = await audioPlayer.pause();
-    return result;
+    await audioPlayer.pause();
   }
 
   /// 拖动播放
   Future seekPlay(Duration duration) async {
-    int result = await audioPlayer.seek(duration);
-    return result;
+    await audioPlayer.seek(duration);
   }
 
   /// 回调

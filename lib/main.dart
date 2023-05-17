@@ -1,15 +1,17 @@
 // ignore_for_file: unused_import,unnecessary_import, depend_on_referenced_packages, unnecessary_new, unnecessary_overrides, prefer_const_constructors, no_leading_underscores_for_local_identifiers, unnecessary_null_comparison, must_be_immutable
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 // import 'package:flutter/gestures.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:max_box/bloc/global/bloc/global_bloc.dart';
-import 'package:max_box/bloc/teleprompter/teleprompter_bloc.dart';
-import 'package:max_box/bloc/user/user_bloc.dart';
+import 'package:fengchao/bloc/global/bloc/global_bloc.dart';
+import 'package:fengchao/bloc/teleprompter/teleprompter_bloc.dart';
+import 'package:fengchao/bloc/user/user_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'generated/l10n.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:max_box/common/AndroidWinodwApp.dart';
+import 'package:fengchao/common/AndroidWinodwApp.dart';
 import 'package:flutter/services.dart';
 import './router/Routes.dart';
 import 'router/navigatorRouterObserver.dart';
@@ -31,20 +33,25 @@ void main() {
     statusBarBrightness: Brightness.light,
   );
   SystemChrome.setSystemUIOverlayStyle(uiOverlayStyle);
-
-  BlocOverrides.runZoned(
-    () => runApp(const MyApp()),
-    blocObserver: SimpleBlocObserver(),
-  );
+  runZonedGuarded(() {
+    runApp(MyApp());
+    SimpleBlocObserver();
+  }, (error, stackTrace) {
+    print('Uncaught error: $error');
+    print(stackTrace);
+  });
   configLoading();
 }
 
 @pragma('vm:entry-point')
 void androidWindow() {
-  BlocOverrides.runZoned(
-    () => runApp(const AndroidWindowApp()),
-    blocObserver: SimpleBlocObserver(),
-  );
+  runZonedGuarded(() {
+    runApp(MyApp());
+    SimpleBlocObserver();
+  }, (error, stackTrace) {
+    print('Uncaught error: $error');
+    print(stackTrace);
+  });
 }
 
 // 配置Loading
@@ -90,9 +97,7 @@ class MyApp extends StatelessWidget {
         ],
         child: MaterialApp(
           navigatorObservers: [NavigatorRouterObserver()],
-          // initialRoute: '/test2',
-          initialRoute: '/home',
-          // routes: AppRoutes.getRoutes(),
+          initialRoute: '/splash',
           localizationsDelegates: const [
             // 这行是关键
             // RefreshLocalizations.delegate,

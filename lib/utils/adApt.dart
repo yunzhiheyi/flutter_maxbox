@@ -13,13 +13,13 @@ class Adapt {
   static var _ratio;
   static init(int number) {
     // ignore: unnecessary_type_check
-    int uiwidth = number is int ? number : 750;
+    int uiwidth = number is int ? number : 720;
     _ratio = _width / uiwidth;
   }
 
   static px(number) {
     if (!(_ratio is double || _ratio is int)) {
-      Adapt.init(750);
+      Adapt.init(720);
     }
     return number * _ratio;
   }

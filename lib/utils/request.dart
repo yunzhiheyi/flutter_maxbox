@@ -4,8 +4,8 @@ import 'dart:convert';
 // import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:max_box/utils/LocalStorage.dart';
-import 'package:max_box/utils/tools.dart';
+import 'package:fengchao/utils/LocalStorage.dart';
+import 'package:fengchao/utils/tools.dart';
 // import 'package:flutter/cupertino.dart';
 // import 'package:flutter/material.dart';
 ///加载动画
@@ -14,14 +14,14 @@ import 'package:flutter_easyloading/flutter_easyloading.dart';
 class Request {
   // 配置 Dio 实例
   static final BaseOptions _options = BaseOptions(
-    ///Api地址
-    baseUrl: 'http://192.168.101.5:3001',
+    ///Api地址1
+    baseUrl: 'http://192.168.31.82:3000',
 
     ///打开超时时间
-    connectTimeout: 50000,
+    connectTimeout: const Duration(seconds: 5),
 
     ///接收超时时间
-    receiveTimeout: 30000,
+    receiveTimeout: const Duration(seconds: 3),
   );
   // 创建 Dio 实例
   static final Dio _dio = Dio(_options);
@@ -112,17 +112,17 @@ class Request {
   // 处理 Dio 异常
   static String _dioError(DioError error) {
     switch (error.type) {
-      case DioErrorType.connectTimeout:
+      case DioErrorType.connectionError:
         return "网络连接超时，请检查网络设置";
       case DioErrorType.receiveTimeout:
         return "服务器异常，请稍后重试！";
       case DioErrorType.sendTimeout:
         return "网络连接超时，请检查网络设置";
-      case DioErrorType.response:
+      case DioErrorType.badResponse:
         return "服务器异常，请稍后重试！";
       case DioErrorType.cancel:
         return "请求已被取消，请重新请求";
-      case DioErrorType.other:
+      case DioErrorType.unknown:
         return "网络异常，请稍后重试！";
       default:
         return "Dio异常";

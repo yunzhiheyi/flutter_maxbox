@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
-import 'package:max_box/utils/adApt.dart';
+import 'package:fengchao/utils/adApt.dart';
 
 class AppToBar extends StatefulWidget implements PreferredSizeWidget {
   final String title;

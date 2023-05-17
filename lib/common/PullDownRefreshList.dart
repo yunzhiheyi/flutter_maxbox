@@ -1,11 +1,11 @@
 // ignore_for_file: unnecessary_import,unused_import, library_private_types_in_public_api, file_names, no_leading_underscores_for_local_identifiers, unnecessary_new, duplicate_import, avoid_print, prefer_const_constructors
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:max_box/bloc/teleprompter/teleprompter_bloc.dart';
-import 'package:max_box/utils/adApt.dart';
-// import 'package:max_box/views/login.dart';
-// import 'package:max_box/router/router_utils.dart';
-// import 'package:max_box/common/HomeSwiper.dart';
+import 'package:fengchao/bloc/teleprompter/teleprompter_bloc.dart';
+import 'package:fengchao/utils/adApt.dart';
+// import 'package:fengchao/views/login.dart';
+// import 'package:fengchao/router/router_utils.dart';
+// import 'package:fengchao/common/HomeSwiper.dart';
 import 'friend_card.dart';
 import 'dart:ui';
 

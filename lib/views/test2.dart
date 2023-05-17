@@ -3,8 +3,8 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
-import 'package:max_box/common/AppToBar.dart';
-import 'package:max_box/utils/adApt.dart';
+import 'package:fengchao/common/AppToBar.dart';
+import 'package:fengchao/utils/adApt.dart';
 
 class test2 extends StatelessWidget {
   @override
@@ -130,7 +130,7 @@ class _CircleFlow extends FlowDelegate {
     double radius = context.size.shortestSide / 2;
     var count = context.childCount;
     // 转换角度72度
-    var perRad = 72 / 180.0 * pi;  
+    var perRad = 72 / 180.0 * pi;
     for (int i = 0; i < count; i++) {
       var cSizeX = 80 / 2;
       var cSizeY = 80 / 2;

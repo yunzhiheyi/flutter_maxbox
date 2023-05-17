@@ -3,11 +3,11 @@ import 'dart:async';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:max_box/bloc/user/user_bloc.dart';
-import 'package:max_box/router/Routes.dart';
-import 'package:max_box/utils/adApt.dart';
-import 'package:max_box/common/LoginPrivacy.dart';
-import 'package:max_box/utils/api.dart';
+import 'package:fengchao/bloc/user/user_bloc.dart';
+import 'package:fengchao/router/Routes.dart';
+import 'package:fengchao/utils/adApt.dart';
+import 'package:fengchao/common/LoginPrivacy.dart';
+import 'package:fengchao/utils/api.dart';
 
 import '../common/AppButton.dart';
 

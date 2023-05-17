@@ -4,10 +4,10 @@
 // import 'dart:ui';
 import 'package:flutter/material.dart';
 // import 'package:flutter/services.dart';
-// import 'package:max_box/bloc/global/bloc/global_bloc.dart';
-import 'package:max_box/common/AppToBar.dart';
+// import 'package:fengchao/bloc/global/bloc/global_bloc.dart';
+import 'package:fengchao/common/AppToBar.dart';
 // import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:max_box/utils/adApt.dart';
+import 'package:fengchao/utils/adApt.dart';
 import 'package:video_player/video_player.dart';
 
 import '../common/AppButton.dart';

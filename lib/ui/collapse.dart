@@ -1,7 +1,7 @@
 // ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors_in_immutables, deprecated_member_use, sort_child_properties_last, unnecessary_null_comparison, non_constant_identifier_names, constant_identifier_names, library_private_types_in_public_api, unused_import, avoid_print
 
 import 'package:flutter/material.dart';
-import 'package:max_box/utils/adApt.dart';
+import 'package:fengchao/utils/adApt.dart';
 import 'animate_rotate.dart';
 
 class Collapse extends StatefulWidget {

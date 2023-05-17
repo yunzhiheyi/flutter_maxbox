@@ -3,8 +3,8 @@
 import 'package:contained_tab_bar_view/contained_tab_bar_view.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
-import 'package:max_box/common/AppToBar.dart';
-import 'package:max_box/utils/adApt.dart';
+import 'package:fengchao/common/AppToBar.dart';
+import 'package:fengchao/utils/adApt.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart';
 import 'package:video_player/video_player.dart';
 

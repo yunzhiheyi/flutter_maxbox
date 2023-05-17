@@ -2,14 +2,14 @@
 
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
-import 'package:max_box/views/buyDuration.dart';
-import 'package:max_box/views/orderList.dart';
-import 'package:max_box/views/setup.dart';
-import 'package:max_box/views/textToVoice.dart';
-import 'package:max_box/views/teleprompter.dart';
-import 'package:max_box/views/teleprompterText.dart';
-import 'package:max_box/views/test.dart';
-import 'package:max_box/views/videoTotext.dart';
+import 'package:fengchao/views/buyDuration.dart';
+import 'package:fengchao/views/orderList.dart';
+import 'package:fengchao/views/setup.dart';
+import 'package:fengchao/views/textToVoice.dart';
+import 'package:fengchao/views/teleprompter.dart';
+import 'package:fengchao/views/teleprompterText.dart';
+import 'package:fengchao/views/test.dart';
+import 'package:fengchao/views/videoTotext.dart';
 import '../views/buyMembers.dart';
 import '../views/conversionDetails.dart';
 import '../views/login.dart';

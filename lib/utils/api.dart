@@ -20,7 +20,7 @@ class Api {
   ///获取内容
   static getContent(Map<String, dynamic> data) {
     return Request.get(
-      "/api/app/user/teleprompter/list",
+      "/api/v1/app/generic/getContent",
       params: data,
     );
   }

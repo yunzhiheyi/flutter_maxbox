@@ -4,8 +4,8 @@ import 'package:audioplayers/audioplayers.dart';
 import 'package:contained_tab_bar_view/contained_tab_bar_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:max_box/common/AppToBar.dart';
-import 'package:max_box/utils/adApt.dart';
+import 'package:fengchao/common/AppToBar.dart';
+import 'package:fengchao/utils/adApt.dart';
 import 'package:syncfusion_flutter_sliders/sliders.dart';
 import 'package:video_player/video_player.dart';
 
@@ -52,7 +52,7 @@ class TextToVoiceState extends State<TextToVoice>
         .audioPlayer
         .onPlayerStateChanged
         .listen((PlayerState playerState) {
-      if (playerState == PlayerState.COMPLETED) {
+      if (playerState == PlayerState.completed) {
         setState(() {
           groupValue = 0;
         });

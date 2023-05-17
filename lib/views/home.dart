@@ -6,10 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_app_update/azhon_app_update.dart';
 import 'package:flutter_app_update/update_model.dart';
-import 'package:max_box/bloc/global/bloc/global_bloc.dart';
-import 'package:max_box/common/UpgradeDialog.dart';
-import 'package:max_box/common/topAppBar.dart';
-// import 'package:max_box/common/PullDownRefreshList.dart';
+import 'package:fengchao/bloc/global/bloc/global_bloc.dart';
+import 'package:fengchao/common/UpgradeDialog.dart';
+import 'package:fengchao/common/topAppBar.dart';
+// import 'package:fengchao/common/PullDownRefreshList.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:universal_platform/universal_platform.dart';
 
@@ -44,8 +44,6 @@ class HomeDadaState extends State<HomeDada>
     "flutterUpdate.apk",
     "ic_launcher",
     "1.支持Android M N O P Q\n2.支持自定义下载过程\n3.支持 设备>=Android M 动态权限的申请\n4.支持通知栏进度条展示\n5.支持文字国际化",
-    showiOSDialog: false,
-    iOSUrl: 'https://itunes.apple.com/cn/app/抖音/id1142110895',
   );
   @override
   void initState() {

@@ -5,12 +5,12 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:max_box/common/AppToBar.dart';
+import 'package:fengchao/common/AppToBar.dart';
 import 'package:android_window/main.dart' as android_window;
-import 'package:max_box/common/PullDownRefreshList.dart';
+import 'package:fengchao/common/PullDownRefreshList.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:max_box/common/TeleprompterHead.dart';
-import 'package:max_box/utils/adApt.dart';
+import 'package:fengchao/common/TeleprompterHead.dart';
+import 'package:fengchao/utils/adApt.dart';
 
 import '../bloc/teleprompter/teleprompter_bloc.dart';
 import '../common/TeleprompterSetup.dart';

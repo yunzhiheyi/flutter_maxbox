@@ -6,8 +6,8 @@ import 'package:flutter/services.dart';
 import 'dart:async';
 
 import 'package:flutter_animated_dialog/flutter_animated_dialog.dart';
-import 'package:max_box/common/AppButton.dart';
-import 'package:max_box/utils/adApt.dart';
+import 'package:fengchao/common/AppButton.dart';
+import 'package:fengchao/utils/adApt.dart';
 
 import '../common/AppToBar.dart';
 import '../common/IconText.dart';

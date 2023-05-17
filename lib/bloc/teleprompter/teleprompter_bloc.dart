@@ -1,10 +1,12 @@
 // ignore_for_file: depend_on_referenced_packages, avoid_print, no_leading_underscores_for_local_identifiers
+import 'dart:ffi';
+
 import 'package:bloc/bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:flutter/foundation.dart';
-import 'package:max_box/model/models.dart';
-import 'package:max_box/utils/api.dart';
+import 'package:fengchao/model/models.dart';
+import 'package:fengchao/utils/api.dart';
 
 import 'package:stream_transform/stream_transform.dart';
 part 'teleprompter_event.dart';
@@ -63,24 +65,18 @@ class TeleprompterBloc extends Bloc<TeleprompterEvent, TeleprompterState> {
     };
     Map<String, dynamic> resData = await Api.getContent(options);
     if (resData['code'] == 200) {
-      final body = resData['data']['result'] as List;
+      final body = resData['data']['list'] as List;
       final List<HomeContentViewModel> listModel;
       if (body.isNotEmpty) {
         listModel = body.map((dynamic json) {
           return HomeContentViewModel(
-              id: json['id'] as String,
-              title: json['title'] as String,
-              content: json['content'] as String,
-              createAt: json['createAt'] as String);
+              id: json['id'],
+              title: json['title'],
+              content: json['content'],
+              createAt: json['create_time']);
         }).toList();
       } else {
-        listModel = [
-          const HomeContentViewModel(
-              id: '0',
-              title: '测试标题测试标题测试标题测试标题测试标题',
-              content: '测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容测试内容',
-              createAt: '2022-05-26: 10:00:00'),
-        ];
+        listModel = [];
       }
       Map<String, dynamic> successData = {
         "listModel": listModel,

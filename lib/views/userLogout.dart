@@ -3,10 +3,10 @@
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:max_box/router/Routes.dart';
-import 'package:max_box/utils/LocalStorage.dart';
+import 'package:fengchao/router/Routes.dart';
+import 'package:fengchao/utils/LocalStorage.dart';
 //final demos = AppRoutes.getDemos();
-import 'package:max_box/utils/adApt.dart';
+import 'package:fengchao/utils/adApt.dart';
 
 import '../common/AppButton.dart';
 import '../common/AppToBar.dart';
@@ -14,7 +14,7 @@ import '../common/IconText.dart';
 import '../common/LogoutPrivacy.dart';
 import '../common/RowItem.dart';
 import '../model/user.dart';
-// import 'package:max_box/common/Myitem.dart';
+// import 'package:fengchao/common/Myitem.dart';
 
 class UserLogout extends StatefulWidget {
   Map<String, dynamic> params;

@@ -1,4 +1,4 @@
-name: max_box
+name: fengchao
 description: A new Flutter application.
 
 # The following line prevents the package from being accidentally published to
@@ -31,14 +31,14 @@ dependencies:
   flutter_bloc: ^8.0.1 # 状态管理
   flutter_lints: ^2.0.1
   cupertino_icons: ^1.0.4
-  webview_flutter: ^3.0.4
+  webview_flutter: ^4.2.0
   image_picker: ^0.8.5+3
   flutter_swiper_view: ^1.1.8
   universal_platform: ^1.0.0+1
-  dio: ^4.0.6
+  dio: ^5.1.1
   fluro: ^2.0.3
   shared_preferences: ^2.0.15 # 本地存储
-  android_window: ^0.1.2
+  android_window: ^0.4.0
   flutter_easyloading: ^3.0.5
   flare_flutter: ^2.0.1
   equatable: ^2.0.3
@@ -46,16 +46,16 @@ dependencies:
   bloc_concurrency: ^0.2.0
   animated_rotation: ^2.0.0
   string_scanner: ^1.1.0
-  syncfusion_flutter_sliders: ^20.1.58
+  syncfusion_flutter_sliders: ^21.2.3
   toggle_switch: ^2.0.1
   video_player: ^2.4.2
   roundcheckbox: ^2.0.4+1
   flutter_animated_dialog: ^2.0.1
-  permission_handler: ^9.2.0
+  permission_handler: ^10.2.0
   contained_tab_bar_view: ^0.8.0
   rxdart: ^0.27.4
-  audioplayers: ^0.20.1
-  flutter_app_update: 1.0.5
+  audioplayers: ^4.0.1
+  flutter_app_update: ^3.0.2
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -5,9 +5,9 @@ import 'dart:io';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:max_box/bloc/global/bloc/global_bloc.dart';
-import 'package:max_box/model/home_content.dart';
-import 'package:max_box/utils/adApt.dart';
+import 'package:fengchao/bloc/global/bloc/global_bloc.dart';
+import 'package:fengchao/model/home_content.dart';
+import 'package:fengchao/utils/adApt.dart';
 import 'dart:ui';
 import 'package:android_window/main.dart' as android_window;
 

@@ -6,10 +6,10 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:max_box/views/home.dart';
-import 'package:max_box/views/user.dart';
-import 'package:max_box/utils/adApt.dart';
-import 'package:max_box/common/HomeSheetTools.dart';
+import 'package:fengchao/views/home.dart';
+import 'package:fengchao/views/user.dart';
+import 'package:fengchao/utils/adApt.dart';
+import 'package:fengchao/common/HomeSheetTools.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:universal_platform/universal_platform.dart';
 import 'bloc/global/bloc/global_bloc.dart';
