@@ -18,6 +18,7 @@ import 'router/navigatorRouterObserver.dart';
 import 'utils/adApt.dart';
 
 void main() {
+  Bloc.observer = SimpleBlocObserver();
   WidgetsFlutterBinding.ensureInitialized();
   //滚动性能优化 1.22.0
   // GestureBinding.instance?.resamplingEnabled = true;
@@ -34,11 +35,10 @@ void main() {
   );
   SystemChrome.setSystemUIOverlayStyle(uiOverlayStyle);
   runZonedGuarded(() {
-    runApp(MyApp());
-    SimpleBlocObserver();
+    runApp(const MyApp());
   }, (error, stackTrace) {
-    print('Uncaught error: $error');
-    print(stackTrace);
+    // 处理全局未捕获的异常
+    print('未捕获的异常: $error');
   });
   configLoading();
 }
@@ -46,12 +46,12 @@ void main() {
 @pragma('vm:entry-point')
 void androidWindow() {
   runZonedGuarded(() {
-    runApp(MyApp());
-    SimpleBlocObserver();
+    runApp(const AndroidWindowApp());
   }, (error, stackTrace) {
-    print('Uncaught error: $error');
-    print(stackTrace);
+    // 处理全局未捕获的异常
+    print('未捕获的异常: $error');
   });
+
 }
 
 // 配置Loading

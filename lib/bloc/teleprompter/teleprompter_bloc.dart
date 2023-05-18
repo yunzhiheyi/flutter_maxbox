@@ -65,15 +65,15 @@ class TeleprompterBloc extends Bloc<TeleprompterEvent, TeleprompterState> {
     };
     Map<String, dynamic> resData = await Api.getContent(options);
     if (resData['code'] == 200) {
-      final body = resData['data']['list'] as List;
+      final body = resData['data']['result'] as List;
       final List<HomeContentViewModel> listModel;
       if (body.isNotEmpty) {
         listModel = body.map((dynamic json) {
           return HomeContentViewModel(
-              id: json['id'],
+              id: json['_id'],
               title: json['title'],
               content: json['content'],
-              createAt: json['create_time']);
+              created_time: json['created_time']);
         }).toList();
       } else {
         listModel = [];

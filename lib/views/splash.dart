@@ -16,6 +16,7 @@ import '../common/DialogLayout.dart';
 import '../common/DoubleTapBackExitApp.dart';
 import '../common/SplashPrivacy.dart';
 import '../router/Routes.dart';
+import '../utils/LocalStorage.dart';
 
 class Splash extends StatefulWidget {
   const Splash({Key? key}) : super(key: key);
@@ -29,7 +30,16 @@ class _SplashState extends State<Splash> {
   void initState() {
     super.initState();
   }
-
+  void _isLogin() async {
+    String token = LocalStorage.get(LocalStorage.accessTokenKey);
+    if(token.isNotEmpty) {
+      print('accessTokenKey');
+    }
+  }
+  @override
+  void didChangeDependencies() {
+    _isLogin();
+  }
   /// 退出 APP 方式一
   void _doQuit() async {
     await SystemChannels.platform.invokeMethod('SystemNavigator.pop');
@@ -85,7 +95,6 @@ class _SplashState extends State<Splash> {
     ].request();
     print('相机权限：${statuses[Permission.camera]}');
     print('存储权限：${statuses[Permission.storage]}');
-
     bool isShown = await Permission.contacts.shouldShowRequestRationale;
     print('isShown_____$isShown');
   }

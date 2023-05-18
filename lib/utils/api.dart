@@ -20,7 +20,7 @@ class Api {
   ///获取内容
   static getContent(Map<String, dynamic> data) {
     return Request.get(
-      "/api/v1/app/generic/getContent",
+      "/api/app/generic/getContent",
       params: data,
     );
   }
@@ -28,7 +28,7 @@ class Api {
   // 获取版本号
   static upgradVersion(Map<String, dynamic> data) {
     return Request.get(
-      "/api/v1/client/user/upgradVersion",
+      "/api/client/user/upgradVersion",
       params: data,
     );
   }

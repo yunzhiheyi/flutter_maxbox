@@ -7,11 +7,11 @@ class HomeContentViewModel extends Equatable {
       {required this.id,
       required this.title,
       required this.content,
-      required this.createAt});
+      required this.created_time});
   final String id;
   final String title;
   final String content;
-  final String createAt;
+  final String created_time;
   @override
-  List<Object> get props => [id, title, content, createAt];
+  List<Object> get props => [id, title, content, created_time];
 }

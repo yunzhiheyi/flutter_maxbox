@@ -197,7 +197,7 @@ class FriendCardState extends State<FriendCard> {
                   child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
-                        Text(widget.data.createAt,
+                        Text(widget.data.created_time,
                             style: TextStyle(
                               fontSize: Adapt.px(22),
                               color: const Color(0xFF9E9E9E),
