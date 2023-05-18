@@ -100,14 +100,16 @@ class _LoginCodeState extends State<LoginCode> {
                     // 触摸收起键盘
                     FocusScope.of(context).requestFocus(FocusNode());
                   },
-                  child: Column(
+                  child: SingleChildScrollView(child:Column(
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
                       Container(
-                        alignment: Alignment.topLeft,
+                        alignment: Alignment.centerLeft,
+                        height: Adapt.px(88),
                         margin: EdgeInsets.only(
-                            top: topPadding + Adapt.px(20), left: Adapt.px(45)),
+                            top: topPadding + Adapt.px(20), left: Adapt.px(45),right: Adapt.px(45)),
                         child: GestureDetector(
                           onTap: () {
                             Navigator.of(context).pop();
@@ -126,10 +128,10 @@ class _LoginCodeState extends State<LoginCode> {
                       Container(
                         width: Adapt.px(120),
                         height: Adapt.px(120),
-                        margin: EdgeInsets.only(top: Adapt.px(165)),
+                        margin: EdgeInsets.only(top: Adapt.px(125)),
                         decoration: BoxDecoration(
                             borderRadius:
-                                BorderRadius.all(Radius.circular(80.0)),
+                            BorderRadius.all(Radius.circular(80.0)),
                             color: Color(0xFFFFFFFF)),
                       ),
                       Image.asset("assets/images/icon-logo.png",
@@ -138,7 +140,7 @@ class _LoginCodeState extends State<LoginCode> {
                           height: Adapt.px(80),
                           decoration: BoxDecoration(
                             borderRadius:
-                                BorderRadius.all(Radius.circular(80.0)),
+                            BorderRadius.all(Radius.circular(80.0)),
                             border: Border.all(
                                 color: Color.fromARGB(255, 168, 167, 167),
                                 width: 0.5),
@@ -149,41 +151,41 @@ class _LoginCodeState extends State<LoginCode> {
                           child: Row(children: <Widget>[
                             Flexible(
                                 child: TextField(
-                              maxLength: 11,
-                              keyboardType: TextInputType.number,
-                              onChanged: (val) => _phone = val,
-                              style: TextStyle(
-                                  color: Color.fromARGB(255, 255, 255, 255)),
-                              decoration: InputDecoration(
-                                  counterText: '',
-                                  contentPadding:
+                                  maxLength: 11,
+                                  keyboardType: TextInputType.number,
+                                  onChanged: (val) => _phone = val,
+                                  style: TextStyle(
+                                      color: Color.fromARGB(255, 255, 255, 255)),
+                                  decoration: InputDecoration(
+                                      counterText: '',
+                                      contentPadding:
                                       const EdgeInsets.symmetric(vertical: 1),
-                                  counterStyle: TextStyle(color: Colors.grey),
-                                  // contentPadding: EdgeInsets.only(top: 0, bottom: 0),
-                                  focusColor:
+                                      counterStyle: TextStyle(color: Colors.grey),
+                                      // contentPadding: EdgeInsets.only(top: 0, bottom: 0),
+                                      focusColor:
                                       Color.fromARGB(255, 255, 255, 255),
-                                  enabledBorder: const OutlineInputBorder(
-                                      borderSide: BorderSide(
-                                          color: Color.fromARGB(0, 32, 31, 31)),
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(100))),
-                                  focusedBorder: const OutlineInputBorder(
-                                      borderSide:
+                                      enabledBorder: const OutlineInputBorder(
+                                          borderSide: BorderSide(
+                                              color: Color.fromARGB(0, 32, 31, 31)),
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(100))),
+                                      focusedBorder: const OutlineInputBorder(
+                                          borderSide:
                                           BorderSide(color: Color(0x00000000)),
-                                      borderRadius: BorderRadius.all(
-                                          Radius.circular(100))),
-                                  hintText: '请输入手机号码',
-                                  hintStyle: TextStyle(
-                                      fontSize: Adapt.px(26),
-                                      color: Color.fromRGBO(158, 158, 158, 1)),
-                                  hintMaxLines: 1),
-                            )),
+                                          borderRadius: BorderRadius.all(
+                                              Radius.circular(100))),
+                                      hintText: '请输入手机号码',
+                                      hintStyle: TextStyle(
+                                          fontSize: Adapt.px(26),
+                                          color: Color.fromRGBO(158, 158, 158, 1)),
+                                      hintMaxLines: 1),
+                                )),
                           ])),
                       Container(
                           height: Adapt.px(80),
                           decoration: BoxDecoration(
                             borderRadius:
-                                BorderRadius.all(Radius.circular(80.0)),
+                            BorderRadius.all(Radius.circular(80.0)),
                             border: Border.all(
                                 color: Color.fromARGB(255, 168, 167, 167),
                                 width: 0.5),
@@ -200,14 +202,14 @@ class _LoginCodeState extends State<LoginCode> {
                                   onChanged: (val) => _code = val,
                                   style: TextStyle(
                                       color:
-                                          Color.fromARGB(255, 255, 255, 255)),
+                                      Color.fromARGB(255, 255, 255, 255)),
                                   decoration: InputDecoration(
                                       counterText: '',
                                       contentPadding:
-                                          const EdgeInsets.symmetric(
-                                              vertical: 1),
+                                      const EdgeInsets.symmetric(
+                                          vertical: 1),
                                       focusColor:
-                                          Color.fromRGBO(255, 255, 255, 1),
+                                      Color.fromRGBO(255, 255, 255, 1),
                                       enabledBorder: const OutlineInputBorder(
                                           borderSide: BorderSide(
                                               color: Color(0x00FF0000)),
@@ -222,7 +224,7 @@ class _LoginCodeState extends State<LoginCode> {
                                       hintStyle: TextStyle(
                                           fontSize: Adapt.px(26),
                                           color:
-                                              Color.fromRGBO(158, 158, 158, 1)),
+                                          Color.fromRGBO(158, 158, 158, 1)),
                                       hintMaxLines: 1),
                                 )),
                             TextButton(
@@ -234,11 +236,11 @@ class _LoginCodeState extends State<LoginCode> {
                                         fontSize: Adapt.px(26))),
                                 style: ButtonStyle(
                                     backgroundColor:
-                                        MaterialStateProperty.resolveWith(
+                                    MaterialStateProperty.resolveWith(
                                             (states) {
-                                      //默认不使用背景颜色
-                                      return null;
-                                    }),
+                                          //默认不使用背景颜色
+                                          return null;
+                                        }),
                                     minimumSize: MaterialStateProperty.all(
                                         const Size(100, 30)),
                                     padding: MaterialStateProperty.all(
@@ -261,7 +263,7 @@ class _LoginCodeState extends State<LoginCode> {
                               Adapt.px(55), Adapt.px(35), Adapt.px(45), 0),
                           child: const LoginPrivacy()),
                     ],
-                  ));
+                  )));
             }));
   }
 }
