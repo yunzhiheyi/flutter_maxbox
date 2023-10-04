@@ -69,16 +69,17 @@ class _LayoutDataState extends State<LayoutData> {
 
     return DoubleTapBackExitApp(
         child: Scaffold(
-            backgroundColor: const Color.fromRGBO(47, 47, 47, 1),
+            // backgroundColor: const Color.fromRGBO(47, 47, 47, 1),
             body: _children[_currentIndex],
             bottomNavigationBar: Container(
+                color: const Color.fromRGBO(47, 47, 47, 1),
                 padding: EdgeInsets.fromLTRB(
                     0,
-                    Adapt.px(6),
+                    Adapt.px(8),
                     0,
                     UniversalPlatform.isAndroid
                         ? Adapt.px(8)
-                        : Adapt.px(Adapt.padBotH() + 6)),
+                        : Adapt.px(Adapt.padBotH() + 9)),
                 // decoration: const BoxDecoration(
                 //   boxShadow: [
                 //     BoxShadow(

@@ -107,7 +107,6 @@ class _LoginCodeState extends State<LoginCode> {
                     children: <Widget>[
                       Container(
                         alignment: Alignment.centerLeft,
-                        height: Adapt.px(88),
                         margin: EdgeInsets.only(
                             top: topPadding + Adapt.px(20), left: Adapt.px(45),right: Adapt.px(45)),
                         child: GestureDetector(

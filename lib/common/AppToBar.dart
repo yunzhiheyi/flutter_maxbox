@@ -68,7 +68,6 @@ class _AppToBar extends State<AppToBar> {
           child: Visibility(
               visible: widget.isBack,
               child: Container(
-                  height: Adapt.px(88),
                   alignment: Alignment.bottomCenter,
                   child: IconButton(
                       icon: Icon(
@@ -77,11 +76,11 @@ class _AppToBar extends State<AppToBar> {
                         color: Colors.white,
                       ),
                       onPressed: () {
-                        FocusScopeNode currentFocus = FocusScope.of(context);
-                        if (!currentFocus.hasPrimaryFocus &&
-                            currentFocus.focusedChild != null) {
-                          FocusManager.instance.primaryFocus?.unfocus();
-                        }
+                        // FocusScopeNode currentFocus = FocusScope.of(context);
+                        // if (!currentFocus.hasPrimaryFocus &&
+                        //     currentFocus.focusedChild != null) {
+                        //   FocusManager.instance.primaryFocus?.unfocus();
+                        // }
                         EasyLoading.dismiss();
                         Navigator.of(context).pop();
                       })))),

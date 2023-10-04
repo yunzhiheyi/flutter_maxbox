@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'dart:ui';
+import 'dart:io';
 
 class Adapt {
   static MediaQueryData mediaQuery = MediaQueryData.fromWindow(window);
@@ -10,16 +11,17 @@ class Adapt {
   static final double _topbarH = mediaQuery.padding.top;
   static final double _botbarH = mediaQuery.padding.bottom;
   static final double _pixelRatio = mediaQuery.devicePixelRatio;
+  static final int _w = Platform.isIOS? 680: 720;
   static var _ratio;
   static init(int number) {
     // ignore: unnecessary_type_check
-    int uiwidth = number is int ? number : 720;
+    int uiwidth = number is int ? number : _w;
     _ratio = _width / uiwidth;
   }
 
   static px(number) {
     if (!(_ratio is double || _ratio is int)) {
-      Adapt.init(720);
+      Adapt.init(_w);
     }
     return number * _ratio;
   }

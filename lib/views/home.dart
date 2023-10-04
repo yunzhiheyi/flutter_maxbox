@@ -48,7 +48,7 @@ class HomeDadaState extends State<HomeDada>
   @override
   void initState() {
     scrollController = ScrollController();
-    timePlay = Timer(Duration(milliseconds: 200), () {
+    timePlay = Timer(Duration(milliseconds: 500), () {
       UpgradeDialog(
               height: Adapt.px(UniversalPlatform.isAndroid ? 1760 : 1460),
               confirmTitle: '立即升级',
